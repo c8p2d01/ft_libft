@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clems <clems@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 11:34:14 by clems             #+#    #+#             */
-/*   Updated: 2021/05/30 10:07:22 by clems            ###   ########.fr       */
+/*   Updated: 2021/08/31 00:17:43 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 		p = 1;
 	if (p == 1)
 		m *= -1;
-	l = ft_ndigit_bonus(m);
+	l = ft_log(m, 10);
 	res = malloc(l + p + 1);
 	if (res == NULL)
 		return (NULL);

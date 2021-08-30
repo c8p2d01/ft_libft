@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clems <clems@student.42.fr>                +#+  +:+       +#+         #
+#    By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 11:15:21 by clems             #+#    #+#              #
-#    Updated: 2021/06/04 17:40:41 by clems            ###   ########.fr        #
+#    Updated: 2021/08/31 00:16:52 by cdahlhof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,9 @@ OBJ_FILES = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 			ft_putstr_fd.o  ft_substr.o ft_strjoin.o ft_strtrim.o\
 			ft_split.o ft_strmapi.o\
 			\
-			ft_ndigit_bonus.o ft_c_e_set_bonus.o \
-			ft_strncpy_bonus.o ft_lstprev_bonus.o ft_lstdup_bonus.o
+			ft_log.o ft_c_e_set_bonus.o \
+			ft_strncpy_bonus.o ft_lstprev_bonus.o ft_lstdup_bonus.o\
+			ft_randnbr.o
 #SRC = 		ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 #			ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memcpy.c ft_memmove.c\
 #			ft_memset.c ft_memcmp.c ft_strchr.c ft_strlcat.c ft_strlcpy.c \
