@@ -6,7 +6,7 @@
 #    By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 11:15:21 by clems             #+#    #+#              #
-#    Updated: 2021/08/31 00:16:52 by cdahlhof         ###   ########.fr        #
+#    Updated: 2021/08/31 00:35:48 by cdahlhof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,7 @@ OBJ_FILES = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 			\
 			ft_log.o ft_c_e_set_bonus.o \
 			ft_strncpy_bonus.o ft_lstprev_bonus.o ft_lstdup_bonus.o\
-			ft_randnbr.o
-#SRC = 		ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-#			ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memcpy.c ft_memmove.c\
-#			ft_memset.c ft_memcmp.c ft_strchr.c ft_strlcat.c ft_strlcpy.c \
-#			ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c \
-#			ft_toupper.c ft_calloc.c ft_memchr.c ft_strdup.c \
-#			\
-#			ft_itoa.c ft_putchar_fd.c ft_putnbr_fd.c ft_putendl_fd.c \
-#			ft_putstr_fd.c  ft_substr.c ft_strjoin.c ft_strtrim.c\
-#			ft_split.c ft_strmapi.c\
-#			\
-#			ft_ndigit_bonus.c ft_c_e_set_bonus.c \
-#			ft_strncpy_bonus.c ft_lstprev_bonus.c ft_lstdup_bonus.c
+			ft_randnbr.o ft_dupnbr.o
 BONUS_FILES =	ft_lstadd_back.o ft_lstadd_front.o ft_lstlast.o ft_lstnew.o\
 				ft_lstsize.o ft_lstclear.o ft_lstdelone.o ft_lstiter.o\
 				ft_lstmap.o

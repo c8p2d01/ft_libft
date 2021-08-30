@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 19:03:41 by clems             #+#    #+#             */
-/*   Updated: 2021/08/31 00:19:41 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2021/08/31 00:34:55 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,8 @@ void	ft_strncpy_bonus(char *dest, char *src, unsigned int n);
 t_list	*ft_lstprev_bonus(t_list **lst, t_list *follow);
 //	duplicate a list
 void	ft_lstdup_bonus(t_list *src, t_list *dest);
+//	check if there are any puplicate numbers (represented as string) in a given **c
+int		ft_dupnbr(char **nums);
 //	create a **char of (amount)"random" numbers of value 0 to (max)
 char	**ft_randnbr(int max, int amount);
 
