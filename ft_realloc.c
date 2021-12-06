@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:19:55 by clems             #+#    #+#             */
-/*   Updated: 2021/12/06 08:44:42 by cdahlhof         ###   ########.fr       */
+/*   Created: 2021/12/03 14:07:00 by cdahlhof          #+#    #+#             */
+/*   Updated: 2021/12/06 08:43:38 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// write a given char to a given file-directory
-int	ft_putchar_fd(char c, int fd)
+void	*ft_realloc(void *old, size_t ol, size_t add)
 {
-	return (write(fd, &c, 1));
+	char	*new;
+
+	new = ft_calloc(ol + add, 1);
+	ft_memcpy(new, old, ol);
+	free(old);
+	return ((void *)new);
 }
-//int main()
-//{
-//	ft_putchar_fd('a', 1);
-//}

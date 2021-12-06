@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 19:03:41 by clems             #+#    #+#             */
-/*   Updated: 2021/08/31 00:34:55 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2021/12/03 14:10:15 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 //	concatenate two strings into a new one
 char	*ft_strjoin(char const *s1, char const *s2);
 //	put a char into a file
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 //	put a string and a newline into a file
 void	ft_putendl_fd(char *s, int fd);
 //	put a number into a file
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 //	put a string into a file
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 //	convert a number to its string representation
 char	*ft_itoa(int n);
 //	split a given string at a delimeter c into "words", removing c
@@ -129,6 +129,12 @@ int		ft_lstsize(t_list *lst);
 
 //	return the log (base a) of b
 size_t	ft_log(size_t b, int a);
+//	return the factorial of a given number
+size_t	ft_factorial(size_t n);
+//	return the summ of all numbers from 0 ub to n
+size_t	ft_sum_n(size_t n);
+//	return the result of exponentioal calculation
+size_t	ft_power(size_t base, size_t exponent);
 //	return weather a c is part of set
 int		ft_c_e_set_bonus(char c, char const *set);
 //	copy from src to dest with actual usable return values
@@ -141,5 +147,11 @@ void	ft_lstdup_bonus(t_list *src, t_list *dest);
 int		ft_dupnbr(char **nums);
 //	create a **char of (amount)"random" numbers of value 0 to (max)
 char	**ft_randnbr(int max, int amount);
+//	return the initial number in a string as a long
+long	ft_atol(const char *str);
+//	write out a number in a given base, return the digitcount
+int		ft_putnbr_base(unsigned int num, char *base);
+//	reallocate(bigger) and free the original
+void	*ft_realloc(void *old, size_t ol, size_t add);
 
 #endif

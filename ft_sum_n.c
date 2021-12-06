@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_sum_n.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:19:55 by clems             #+#    #+#             */
-/*   Updated: 2021/12/06 08:44:42 by cdahlhof         ###   ########.fr       */
+/*   Created: 2021/09/10 12:54:36 by cdahlhof          #+#    #+#             */
+/*   Updated: 2021/12/06 08:42:50 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// write a given char to a given file-directory
-int	ft_putchar_fd(char c, int fd)
+size_t	ft_sum_n(size_t n)
 {
-	return (write(fd, &c, 1));
+	size_t	res;
+
+	res = 0;
+	if (n > 0)
+		res = res + n + ft_sum_n(n - 1);
+	return (res);
 }
-//int main()
-//{
-//	ft_putchar_fd('a', 1);
-//}
+
+// int main()
+// {
+// 	int nbr = 5;
+// 	printf("number :\t%d\nresult :\t%d", nbr, (int)ft_sum_n(nbr));
+// }

@@ -6,14 +6,14 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 11:34:14 by clems             #+#    #+#             */
-/*   Updated: 2021/08/31 00:17:43 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2021/12/06 08:44:22 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // convert the given positive integral number to a char representation in *res
-static void	pitoa (long m, int p, int l, char *res)
+static void	pitoa(long m, int p, int l, char *res)
 {
 	int	i;
 	int	d;

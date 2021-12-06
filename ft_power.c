@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:19:55 by clems             #+#    #+#             */
-/*   Updated: 2021/12/06 08:44:42 by cdahlhof         ###   ########.fr       */
+/*   Created: 2021/09/10 12:11:52 by cdahlhof          #+#    #+#             */
+/*   Updated: 2021/12/03 01:48:47 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// write a given char to a given file-directory
-int	ft_putchar_fd(char c, int fd)
+size_t	ft_power(size_t base, size_t exponent)
 {
-	return (write(fd, &c, 1));
+	size_t	res;
+
+	res = 1;
+	while (exponent-- > 0)
+		res = res * base;
+	return (res);
 }
-//int main()
-//{
-//	ft_putchar_fd('a', 1);
-//}
+
+// int main()
+// {
+// 	int nbr = 2;
+// 	printf("number :\t%d\nresult :\t%d", nbr, (int)ft_power_of(nbr, 10));
+// }

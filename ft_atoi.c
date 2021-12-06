@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:40:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2021/08/23 17:50:29 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2021/09/10 12:14:51 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ int	ft_atoi(const char *str)
 	}
 	return (result[0] * result[1]);
 }
-#include <stdio.h>
-#include <stdlib.h>
-int main(void)
-{
-	char str1[] = "  -123";
-	char str2[] = "  -2147483648";
-	char str3[] = "4294967294";
-	char str4[] = "-10000000000000000000";
-	char str5[] = "  -12g3";
-	char str6[] = "  -1-23";
-	//the function breaks with inputs larger than 19/20ish numericons but thats
-	//the edge of the edge and to be frank i don't know where or how atoi does
-	//this
-	//no one cares
-	printf("%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n", atoi(str1),
-	ft_atoi(str1), atoi(str2), ft_atoi(str2), atoi(str3), ft_atoi(str3),
-	 atoi(str4), ft_atoi(str4), atoi(str5), ft_atoi(str5), atoi(str6),
-	 ft_atoi(str6));
-}
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(void)
+// {
+// 	char str1[] = "  -123";
+// 	char str2[] = "  -2147483648";
+// 	char str3[] = "4294967294";
+// 	char str4[] = "-10000000000000000000";
+// 	char str5[] = "  -12g3";
+// 	char str6[] = "  -1-23";
+// 	//the function breaks with inputs larger than 19/20ish numericons but thats
+// 	//the edge of the edge and to be frank i don't know where or how atoi does
+// 	//this
+// 	//no one cares
+// 	printf("%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n%d\t%d\n", atoi(str1),
+// 	ft_atoi(str1), atoi(str2), ft_atoi(str2), atoi(str3), ft_atoi(str3),
+// 	 atoi(str4), ft_atoi(str4), atoi(str5), ft_atoi(str5), atoi(str6),
+// 	 ft_atoi(str6));
+// }

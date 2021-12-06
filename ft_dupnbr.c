@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 00:33:35 by cdahlhof          #+#    #+#             */
-/*   Updated: 2021/08/31 00:33:44 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2021/12/06 08:45:17 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_dupnbr(char **nums)
 	while (l > i + 1)
 	{
 		s = i + 1;
-		while(s < l && (ft_atoi(nums[i]) != ft_atoi(nums[s])))
+		while (s < l && (ft_atoi(nums[i]) != ft_atoi(nums[s])))
 			s++;
 		if (s != l)
 			return (1);

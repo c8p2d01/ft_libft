@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:19:55 by clems             #+#    #+#             */
-/*   Updated: 2021/12/06 08:44:42 by cdahlhof         ###   ########.fr       */
+/*   Created: 2021/12/02 11:00:58 by cdahlhof          #+#    #+#             */
+/*   Updated: 2021/12/06 08:46:03 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// write a given char to a given file-directory
-int	ft_putchar_fd(char c, int fd)
+int	ft_putnbr_base(unsigned int num, char *base)
 {
-	return (write(fd, &c, 1));
+	int	i;
+
+	i = 0;
+	if (num > ft_strlen(base))
+		i += ft_putnbr_base(num / ft_strlen(base), base);
+	write(1, &(base[(num % ft_strlen(base))]), 1);
+	return (i);
 }
-//int main()
-//{
-//	ft_putchar_fd('a', 1);
-//}
