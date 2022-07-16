@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+         #
+#    By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 11:15:21 by clems             #+#    #+#              #
-#    Updated: 2021/12/03 14:10:33 by cdahlhof         ###   ########.fr        #
+#    Updated: 2022/07/16 20:00:56 by cdahlhof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,18 @@ OBJ_FILES = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 			ft_itoa.o ft_putchar_fd.o ft_putnbr_fd.o ft_putendl_fd.o \
 			ft_putstr_fd.o  ft_substr.o ft_strjoin.o ft_strtrim.o\
 			ft_split.o ft_strmapi.o\
-			\
+						ft_striteri.o\
 			ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o\
 			ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o \
 			\
-			ft_log.o ft_factorial.o ft_sum_n.o ft_power.o ft_c_e_set_bonus.o \
-			ft_strncpy_bonus.o ft_lstprev_bonus.o ft_lstdup_bonus.o\
+			ft_log.o ft_factorial.o ft_sum_n.o ft_power.o \
+			ft_strncpy.o ft_lstprev.o ft_lstdup.o\
 			ft_randnbr.o ft_dupnbr.o ft_atol.o ft_putnbr_base.o ft_realloc.o
 
 HEADER_FILES = libft.h
 CC = gcc
+
+.SILENT:
 
 all: $(NAME)
 
@@ -43,7 +45,7 @@ clean:
 	rm -f $(OBJ_FILES) $(BONUS_FILES)
 
 fclean: clean
-	rm -f $(Name)
+	rm -f libft.a
 
 re: fclean all
 

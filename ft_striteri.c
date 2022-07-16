@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdup_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 17:42:52 by clems             #+#    #+#             */
-/*   Updated: 2021/12/02 10:58:40 by cdahlhof         ###   ########.fr       */
+/*   Created: 2021/11/27 22:33:55 by mltaief           #+#    #+#             */
+/*   Updated: 2022/07/16 20:37:41 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// create a new list, cloning the content of the given one
-void	ft_lstdup_bonus(t_list *src, t_list *dest)
+// use a function on every character of a string
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (src)
+	size_t	len;
+	size_t	i;
+
+	len = ft_strlen(s);
+	i = 0;
+	while (i < len)
 	{
-		dest = ft_lstnew(src->content);
-		src = src->next;
-	}
-	while (src)
-	{
-		ft_lstadd_back(&dest, ft_lstnew(src->content));
-		src = src->next;
-	}
+		(*f)(i, s + i);
+		i++;
+	}	
 }

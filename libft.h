@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 19:03:41 by clems             #+#    #+#             */
-/*   Updated: 2021/12/03 14:10:15 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2022/07/16 20:34:53 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdint.h>
 # include <unistd.h>
 # include <stdio.h>
 
@@ -58,9 +59,9 @@ void	*ft_memset(void *str, int c, size_t n);
 char	*ft_strchr(const char *str, int c);
 //	allocate and copy s and return the copy
 char	*ft_strdup(const char *s);
-//	return the number of possibly concatenated bytes, inconcidering the actual action
+//	return the number of possibly concatenated bytes, ignoring the actual action
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-//	return the number of possibly copied bytes, inconcidering the actual action
+//	return the number of possibly copied bytes, ignoring the actual action
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 //	return the length of a string
 size_t	ft_strlen(const char *str);
@@ -99,6 +100,8 @@ char	*ft_itoa(int n);
 char	**ft_split(const char *str, char c);
 //	apply a function f to every byte of a string
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+// use a function on every character of a string
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /* ************************************************************************** */
 /*	Split between Part two and Bonus*/
@@ -135,15 +138,13 @@ size_t	ft_factorial(size_t n);
 size_t	ft_sum_n(size_t n);
 //	return the result of exponentioal calculation
 size_t	ft_power(size_t base, size_t exponent);
-//	return weather a c is part of set
-int		ft_c_e_set_bonus(char c, char const *set);
 //	copy from src to dest with actual usable return values
-void	ft_strncpy_bonus(char *dest, char *src, unsigned int n);
+void	ft_strncpy(char *dest, char *src, unsigned int n);
 //	return the previous element of a list
-t_list	*ft_lstprev_bonus(t_list **lst, t_list *follow);
+t_list	*ft_lstprev(t_list **lst, t_list *follow);
 //	duplicate a list
-void	ft_lstdup_bonus(t_list *src, t_list *dest);
-//	check if there are any puplicate numbers (represented as string) in a given **c
+void	ft_lstdup(t_list *src, t_list *dest);
+//	check if there are any duplicate (char*)numbers in a given char **
 int		ft_dupnbr(char **nums);
 //	create a **char of (amount)"random" numbers of value 0 to (max)
 char	**ft_randnbr(int max, int amount);

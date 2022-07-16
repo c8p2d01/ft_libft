@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprev_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstprev.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clems <clems@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:36:13 by clems             #+#    #+#             */
-/*   Updated: 2021/05/28 18:12:53 by clems            ###   ########.fr       */
+/*   Updated: 2022/07/16 20:38:29 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // gets a pointer to an element and returns the pointer to the previous element
-t_list	*ft_lstprev_bonus(t_list **lst, t_list *follow)
+t_list	*ft_lstprev(t_list **lst, t_list *follow)
 {
 	t_list	*current;
 

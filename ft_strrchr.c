@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clems <clems@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 13:04:10 by clems             #+#    #+#             */
-/*   Updated: 2021/05/27 12:41:24 by clems            ###   ########.fr       */
+/*   Updated: 2022/07/16 20:36:49 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 // return a pointer to the first instance of c in the s, checking only n bytes
 char	*ft_strrchr(const char *str, int c)
 {
-	int				i;
-	unsigned char	*f;
+	size_t	i;
+	char	*ptr;
 
+	c = (unsigned char)c;
+	ptr = NULL;
 	i = 0;
-	f = (unsigned char *)str;
-	while (f[i])
-		i++;
-	while (i >= 0)
+	while (i <= ft_strlen(str))
 	{
-		if (f[i] == c)
-			return ((char *)(f + i));
-		i--;
+		if (str[i] == c)
+		{
+			ptr = (char *)str + i;
+		}
+		i++;
 	}
-	return (NULL);
+	return (ptr);
 }
 //#include <stdio.h>
 //int main()

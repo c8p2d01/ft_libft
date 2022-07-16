@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ndigit_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clems <clems@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:36:09 by clems             #+#    #+#             */
-/*   Updated: 2021/05/27 12:18:20 by clems            ###   ########.fr       */
+/*   Created: 2022/07/16 20:36:58 by cdahlhof          #+#    #+#             */
+/*   Updated: 2022/07/16 20:37:05 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-// count the number of digits in the given number
-size_t	ft_ndigit_bonus(size_t n)
+//🌊
+// seriously: who would use strlcpy?
+void	ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	size_t	i;
-	size_t	p;
+	unsigned int	i;
 
-	p = 1;
-	i = 10;
-	while (i > 0)
+	i = 0;
+	while (i < n && src[i])
 	{
-		if ((n % i) == n)
-			return (p);
-		i *= 10;
-		p++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (p);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 }

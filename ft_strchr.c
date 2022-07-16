@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:41:01 by clems             #+#    #+#             */
-/*   Updated: 2021/08/31 00:00:30 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2022/07/16 20:37:45 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,7 @@
 // return a pointer to the first instance of c in str
 char	*ft_strchr(const char *str, int c)
 {
-	int				i;
-	unsigned char	*f;
-
-	f = (unsigned char *)str;
-	i = 0;
-	while (f[i])
-	{
-		if (f[i] == c)
-			return ((char *)(f + i));
-		i++;
-	}
-	if (f[i] == c)
-		return ((char *)(f + i));
-	return (NULL);
+	return (ft_memchr(str, c, ft_strlen(str) + 1));
 }
 //int main()
 //{
