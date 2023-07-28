@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/04/07 21:53:14 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:35:20 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ long	createGradientColor(float fraction, int r1, short g1, short b1, short r2, s
 	int red	= r1 + fraction * (r2 - r1);
 	int green	= g1 + fraction * (g2 - g1);
 	int blue	 = b1 + fraction * (b2 - b1);
-
-	
 
 	return (0 << 24 | (unsigned char)red << 16 | (unsigned char)green << 8 | (unsigned char)blue);
 }
@@ -69,8 +67,33 @@ long	createMultiGradient(float fraction, int nColor, ...)
 	return (createGradientColor(newFraction, start[0], start[1], start[2], next[0], next[1], next[2]));
 }
 
-int	terminalColor(int r, int g, int b)
+int	create_rgb(int r, int g, int b)
 {
-	r /= 43; g /= 43; b /= 43;
-	return (16 + r*36 + g*6 + b);
+	return (r << 16 | g << 8 | b);
+}
+
+/**
+ * @param color => ("rrbbgg")
+*/
+int	terminalRGB(char *color)
+{
+	char			*colorSnippet;
+	unsigned char	rgb[3];
+
+	if (color[0] == '#')
+		color++;
+	for (int i = 0; i < 3; i++)
+	{
+		rgb[i] = 0;
+		colorSnippet = ft_substr(color, i * 2, 2);
+		if (ft_strlen(colorSnippet))
+		{
+			printf("\t\t%s\n", colorSnippet);
+			ft_tolower(colorSnippet[0]);ft_tolower(colorSnippet[1]);
+			rgb[i] = ft_atoi_base(colorSnippet, "0123456789abcdef");
+		}
+		free (colorSnippet);
+	}
+	printf("\e[48;%i;%i;%im", rgb[0], rgb[1], rgb[2]);
+	return (0);
 }

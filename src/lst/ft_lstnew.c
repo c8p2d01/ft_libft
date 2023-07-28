@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
-#include "../../../inc/lem_in.h"
 
 t_list	*ft_lstnew(void *content)
 {

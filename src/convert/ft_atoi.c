@@ -6,17 +6,67 @@
 /*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/02 15:14:54 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2023/07/28 20:52:21 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
+int	skipWhitespace(const char *numberStr, const char *base)
+{
+	int		toSkip			= 0;
+	char	*whitespaces	= "\t\n\v\f\r ";
+
+	for (int i = 0; numberStr[i]; i++)
+	{
+		if (ft_strchr(whitespaces, numberStr[i]) && !ft_strchr(base, numberStr[i]))
+		{
+			toSkip++;
+			continue;
+		}
+		break;
+	}
+	return (toSkip);
+}
+
+int	isNegative(const char *numberStr, int *i, const char *base)
+{
+	char	sign = numberStr[(*i)];
+	int		result = 1;
+
+	if (sign == '-' && !ft_strchr(base, '-'))
+	{
+		result = -1;
+		i[0]++;
+	}
+	else if (sign == '+' && !ft_strchr(base, '+'))
+	{
+		(*i)++;
+	}
+	return (result);
+}
+
+int	charInBase(char i, const char *base)
+{
+	if (i)
+		return ((int)ft_strchr(base, i));
+	return (i);
+}
+
+int	valueInBase(char i, const char *base)
+{
+	char	*charInBase = ft_strchr(base, i);
+
+	if (!charInBase)
+		return (0);
+	return (charInBase - base);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	size_t	i;
-	int		sign;
-	int		num;
+	int	i;
+	int	sign;
+	int	num;
 
 	i = 0;
 	sign = 1;
@@ -35,4 +85,22 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (num * sign);
+}
+
+int	ft_atoi_base(const char *numberStr, const char *base)
+{
+	int	i;
+	int	sign;
+	int	result;
+
+	result = 0;
+	i = skipWhitespace(numberStr, base);
+	sign = isNegative(numberStr, &i, base);
+	while (charInBase(numberStr[i], base))
+	{
+		result *= ft_strlen(base);
+		result += valueInBase(numberStr[i], base);
+		i++;
+	}
+	return (result * sign);
 }

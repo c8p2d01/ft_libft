@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/04/07 21:54:09 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:35:57 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int			ft_isdouble(char *num);
 
 double		ft_atof(char *str);
 int			ft_atoi(const char *nptr);
+int			ft_atoi_base(const char *numberStr, const char *base);
 char		*ft_itoa(int n);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
@@ -88,8 +89,8 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 int			ft_printf(const char *str, ...);
 int			ft_printf_fd(int fd, const char *str, ...);
 void		printfile(int fd);
-int			terminalColor(int r, int g, int b);
-int			colorflow(int i);
+int			create_rgb(int r, int g, int b);
+int			terminalRGB(char *color);
 long		createGradientColor(float fraction, int r1, short g1, short b1, short r2, short g2, short b2);
 long		createMultiGradient(float fraction, int nColor, ...);
 void		ft_putchar_fd(char c, int fd);
