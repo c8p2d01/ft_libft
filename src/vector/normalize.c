@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:18:59 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/10 21:54:10 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/10 21:58:39 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	normalize_2d(double *x, double *y)
 {
 	double len;
 
+	len = veclen_2d(*x, *y);
 	if (len == 0)
 		return ;
-	len = veclen_2d(*x, *y);
 	*x = *x / len;
 	*y = *y / len;
 }
@@ -68,9 +68,9 @@ void	normalize_3d(double *x, double *y, double *z)
 {
 	double len;
 
+	len = veclen_3d(*x, *y, *z);
 	if (len == 0)
 		return ;
-	len = veclen_3d(*x, *y, *z);
 	*x = *x / len;
 	*y = *y / len;
 	*z = *z / len;
