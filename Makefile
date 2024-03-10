@@ -79,6 +79,10 @@ SRCFILES =	mem/ft_calloc.c \
 		graph/ft_g_remove.c \
 		graph/ft_graph.c \
 		graph/ft_link.c \
+		\
+		vector/normalize.c \
+		vector/vec_len.c \
+
 
 
 # Process Variables

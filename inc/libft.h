@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/07/28 21:35:57 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/10 21:54:38 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include "../src/gnl/get_next_line.h"
@@ -90,7 +91,7 @@ int			ft_printf(const char *str, ...);
 int			ft_printf_fd(int fd, const char *str, ...);
 void		printfile(int fd);
 int			create_rgb(int r, int g, int b);
-int			terminalRGB(char *color);
+int			print_color_from_hex(char *color);
 long		createGradientColor(float fraction, int r1, short g1, short b1, short r2, short g2, short b2);
 long		createMultiGradient(float fraction, int nColor, ...);
 void		ft_putchar_fd(char c, int fd);
@@ -113,5 +114,16 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*
+	Vector
+*/
+
+double	veclen(int dimension, ...);
+double	veclen_2d(double x, double y);
+double	veclen_3d(double x, double y, double z);
+void	normalize(int dimension, ...);
+void	normalize_2d(double *x, double *y);
+void	normalize_3d(double *x, double *y, double *z);
 
 #endif
