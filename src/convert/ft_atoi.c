@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/07/28 20:52:21 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:59:42 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	isNegative(const char *numberStr, int *i, const char *base)
 int	charInBase(char i, const char *base)
 {
 	if (i)
-		return ((int)ft_strchr(base, i));
+		return (base - ft_strchr(base, i));
 	return (i);
 }
 
