@@ -32,6 +32,7 @@ SRCFILES =	mem/ft_calloc.c \
 		\
 		convert/ft_atof.c \
 		convert/ft_atoi.c \
+		convert/ft_atoi_base.c \
 		convert/ft_itoa.c \
 		convert/ft_toupper.c \
 		convert/ft_tolower.c \

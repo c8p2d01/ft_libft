@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/03/07 21:06:14 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:09:27 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_list	*n = NULL;
-	t_list	*p = NULL;
+	t_list	*n;
+	t_list	*p;
+
+	n = NULL;
+	p = NULL;
 	if (lst)
 	{
 		n = lst->next;
@@ -25,7 +28,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 		if (p)
 			p->next = n;
 	}
-	if (lst && del)
+	if (lst && del && lst->content)
 		del(lst->content);
 	if (lst)
 		free(lst);

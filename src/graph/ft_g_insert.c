@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_g_insert.c                                       :+:      :+:    :+:   */
+/*   ft_g_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 19:06:49 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/02 19:06:49 by cdahlhof         ###   ########.fr       */
+/*   Created: 2024/03/14 21:24:35 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/03/14 22:55:38 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,20 @@
 /**
  * @brief Insert one node to another
  */
-t_link	*ft_g_insert(t_room *node, t_room *next)
+void	ft_g_insert(t_gnode *node, t_gnode *next)
 {
-	t_link	*con = ft_new_link(node, next);
-	size_t	i = 0;
+	t_list	*newLink;
+	t_list	*checkLink;
 
-	if (node->links == NULL)
+	checkLink = node->links;
+	while (checkLink)
 	{
-		node->links = ft_calloc(2, sizeof(t_link *));
-		node->links[i] = con;
+		if (ft_is_link(checkLink->content, node, next))
+			return ;
+		checkLink = checkLink->next;
 	}
-	else
-	{
-		while (node->links[i] && !ft_is_link(node->links[i], con->moorv, con->vroom))
-			i++;
-		if (!node->links[i])
-		{
-			node->links = ft_realloc(node->links, sizeof(t_link *) * (i + 1), sizeof(t_link *));
-			node->links[i] = con;
-		}
-	}
-
-	i = 0;
-	if (con->moorv->links == NULL)
-	{
-		con->moorv->links = ft_calloc(2, sizeof(t_link *));
-		con->moorv->links[i] = con;
-	}
-	else
-	{
-		while (con->moorv->links[i] && !ft_is_link(con->moorv->links[i], con->moorv,  con->vroom))
-			i++;
-		if (!con->moorv->links[i])
-		{
-			con->moorv->links = ft_realloc(con->moorv->links, sizeof(t_link *) * (i + 1), sizeof(t_link *));
-			con->moorv->links[i] = con;
-		}
-	}
-	return (con);
+	newLink = ft_lstnew(ft_new_link(node, next));
+	ft_lstadd_back(&(node->links), newLink);
+	ft_lstadd_back(&(next->links), newLink);
+	return ;
 }

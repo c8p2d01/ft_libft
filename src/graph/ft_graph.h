@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_graph.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:07 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/02/28 17:11:03 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:55:22 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,41 @@
 
 # include "../../inc/libft.h"
 
-typedef struct s_room
+typedef struct s_gnode
 {
-	struct s_link	**links;
 	char			*name;
-	size_t			x;
-	size_t			y;
-	ssize_t			first_lvl;
-	ssize_t			after_lvl;
-	bool			flown;
-}	t_room;
+	void			*content;
+	struct s_list	*links;
+}	t_gnode;
 
 typedef struct s_link
 {
-	struct	s_room *vroom;
-	int		flow;
-	struct	s_room *moorv;
-	bool	active;
+	struct s_gnode	*from;
+	struct s_gnode	*to;
+	int				capacity;
+	bool			active;
 }	t_link;
 
-t_room	*ft_g_new_room(char *name);
-t_link	*ft_new_link(t_room *in, t_room *out);
-void	ft_g_del_node(t_room *node);
+t_gnode	*ft_g_new_node(char *name, void *content);
+t_link	*ft_new_link(t_gnode *in, t_gnode *out);
+void	ft_g_del_node(t_gnode *node, void (*del)(void*));
 
-t_link	*ft_g_insert(t_room *node, t_room *next);
-void	ft_g_unlink(t_room *a, t_room *b);
+void	ft_g_insert(t_gnode *node, t_gnode *next);
+void	ft_g_unlink(t_gnode *a, t_gnode *b);
 
-bool	ft_is_link(t_link *link, t_room *a, t_room *b);
-bool	ft_has_link(t_room *a, t_room *b);
+bool	ft_is_link(t_link *link, t_gnode *a, t_gnode *b);
+bool	ft_has_link(t_gnode *a, t_gnode *b);
 
 t_link	*ft_active_link(t_link *link);
 
-void	dry(t_room **all);
-int		ft_flow(t_link *link, t_room *node);
-void	ft_setflow(t_link *link, t_room *next);
-void	ft_resetflow(t_link *link, t_room *next);
+void	dry(t_gnode **all);
+int		ft_g_capacity(t_link *link, t_gnode *node);
+void	ft_setflow(t_link *link, t_gnode *next);
+void	ft_resetflow(t_link *link, t_gnode *next);
 
-t_room	*ft_otherside(t_link *link, t_room *myside);
+t_gnode	*ft_otherside(t_link *link, t_gnode *myside);
 
-size_t	ft_active_link_size(t_room *node);
-size_t	ft_flow_link_size(t_room *node);
-
-void	print_nodes(t_room **node);
-void	print_node(t_room *node);
+size_t	ft_active_link_size(t_gnode *node);
+size_t	ft_flow_link_size(t_gnode *node);
 
 #endif

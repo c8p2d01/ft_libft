@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:18:59 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/10 21:58:39 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:14:18 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,28 @@
 */
 void	normalize(int dimension, ...)
 {
-	double	len = 0;
-
+	double	len[2];
+	double	*val;
 	va_list	coordinate;
+	int		i;
+
 	va_start(coordinate, dimension);
-	for (int i = 0; i < dimension; i++)
+	i = 0;
+	while (i++ < dimension)
 	{
-		double val = (double) *va_arg(coordinate, double *);
-		len += pow(val, 2);
+		len[1] = (double) *va_arg(coordinate, double *);
+		len[0] += pow(len[1], 2);
 	}
-	len = pow(len, 0.5);
+	len[0] = pow(len[0], 0.5);
 	va_end(coordinate);
-
-	if (len == 0)
+	if (len[0] == 0)
 		return ;
-	va_list	pointers;
-	va_start(pointers, dimension);
-
-	for (int i = 0; i < dimension; i++)
+	va_start(coordinate, dimension);
+	i = 0;
+	while (i++ < dimension)
 	{
-		double * ptr = va_arg(pointers, double *);
-		*ptr = *ptr / len;
+		val = va_arg(coordinate, double *);
+		*val = *val / len[0];
 	}
 }
 
@@ -51,7 +52,7 @@ void	normalize(int dimension, ...)
 */
 void	normalize_2d(double *x, double *y)
 {
-	double len;
+	double	len;
 
 	len = veclen_2d(*x, *y);
 	if (len == 0)
@@ -66,7 +67,7 @@ void	normalize_2d(double *x, double *y)
 */
 void	normalize_3d(double *x, double *y, double *z)
 {
-	double len;
+	double	len;
 
 	len = veclen_3d(*x, *y, *z);
 	if (len == 0)
