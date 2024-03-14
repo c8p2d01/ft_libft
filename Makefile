@@ -100,7 +100,7 @@ all:
 
 $(OBJS): $(BUILD)%.o : $(SOURCE)%.c
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@ -lm
 
 $(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/10 21:54:38 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/11 01:41:10 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,11 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 	Vector
 */
 
-double	veclen(int dimension, ...);
-double	veclen_2d(double x, double y);
-double	veclen_3d(double x, double y, double z);
-void	normalize(int dimension, ...);
-void	normalize_2d(double *x, double *y);
-void	normalize_3d(double *x, double *y, double *z);
+double		veclen(int dimension, ...);
+double		veclen_2d(double x, double y);
+double		veclen_3d(double x, double y, double z);
+void		normalize(int dimension, ...);
+void		normalize_2d(double *x, double *y);
+void		normalize_3d(double *x, double *y, double *z);
 
 #endif
