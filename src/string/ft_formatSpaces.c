@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 23:23:27 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:27:15 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static int	trimmedlength(char const *s)
  * @param s [char const *] char * to be split
  * @return [char *] shortet array
 */
-char	*ft_formatSpaces(char const *s)
+void	ft_formatSpaces(char const **s)
 {
 	char	*array;
 	int		cpyfrom;
 	int		cpyto;
 
-	if (!s)
+	if (!s || !(*s))
 		return (NULL);
 	array = ft_calloc(trimmedlength(s), sizeof(char));
 	cpyfrom = 0;
@@ -61,5 +61,6 @@ char	*ft_formatSpaces(char const *s)
 		}
 		array[cpyto] = s[cpyfrom];
 	}
-	return (array);
+	free(*s);
+	*s = array;
 }
