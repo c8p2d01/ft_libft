@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 20:22:53 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:23:27 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	trimmedlength(char const *s)
 		}
 		count++;
 	}
+	return (count);
 }
 
 /**
