@@ -6,61 +6,45 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 23:27:15 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/15 01:01:11 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
-
-static int	trimmedlength(char const *s)
-{
-	int	len;
-	int	count;
-
-	count = 0;
-	len = 0;
-	while (s[len])
-	{
-		while (ft_strchr("\t\n\v\f\r ", s[len]))
-			len++;
-		while (!ft_strchr("\t\n\v\f\r ", s[len]))
-		{
-			count++;
-			len++;
-		}
-		count++;
-	}
-	return (count);
-}
 
 /**
  * trim spaces between words down to one
  * @param s [char const *] char * to be split
  * @return [char *] shortet array
 */
-void	ft_formatSpaces(char const **s)
+void	ft_formatSpaces(char *s)
 {
-	char	*array;
-	int		cpyfrom;
-	int		cpyto;
+	int		cp_from;
+	int		cp_to;
+	int	len;
 
-	if (!s || !(*s))
-		return (NULL);
-	array = ft_calloc(trimmedlength(s), sizeof(char));
-	cpyfrom = 0;
-	cpyto = 0;
-	while (s[cpyfrom])
+	if (!s)
+		return ;
+	len = ft_strlen(s);
+	cp_from = 0;
+	cp_to = 0;
+	while (s[cp_from] && cp_from < len)
 	{
-		while (ft_strchr("\t\n\v\f\r ", s[cpyfrom]))
-			cpyfrom++;
-		while (!ft_strchr("\t\n\v\f\r ", s[cpyfrom]))
-		{
-			array[cpyto] = s[cpyfrom];
-			cpyfrom++;
-			cpyto++;
-		}
-		array[cpyto] = s[cpyfrom];
+		while (ft_strchr("\t\n\v\f\r ", s[cp_from]))
+			cp_from++;
+		s[cp_to] = s[cp_from];
+		cp_from++;
+		cp_to++;
+		if (ft_strchr("\t\n\v\f\r ", s[cp_from]))
+			s[cp_to++] = ' ';
 	}
-	free(*s);
-	*s = array;
+	if (cp_to > 2)
+		s[cp_to - 2] = '\0';
 }
+
+// int main(int c, char **argv){
+// 	char *lal = argv[1];
+// 	printf("%s\n", lal);
+// 	ft_formatSpaces(lal);
+// 	printf("%s\n", lal);
+// }
