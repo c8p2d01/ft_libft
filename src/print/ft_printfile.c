@@ -5,7 +5,7 @@ void	printfile(int fd)
 	char	*line;
 	int		c;
 
-	c = get_next_line(fd, &line);
+	c = ft_get_next_line(fd, &line);
 	line = NULL;
 	while (c == 1)
 	{
