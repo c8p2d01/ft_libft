@@ -29,7 +29,7 @@ SRCFILES =	mem/ft_calloc.c \
 		check/ft_isprint.c \
 		check/ft_isnumeric.c \
 		check/ft_isdouble.c \
-		check/ft_2d_array_size \
+		check/ft_2d_array_size.c \
 		\
 		convert/ft_atof.c \
 		convert/ft_atoi.c \
