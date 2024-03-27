@@ -11,6 +11,6 @@ void	printfile(int fd)
 	{
 		printf("%s\n", line);
 		free (line);
-		c = get_next_line(fd, &line);
+		c = ft_get_next_line(fd, &line);
 	}
 }
