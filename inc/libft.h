@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 23:35:05 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/27 07:44:14 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_isnumeric(char *num);
 int			ft_isdouble(char *num);
+int			ft_2d_array_size(void **arr);
 
 /*
 	Conversion
