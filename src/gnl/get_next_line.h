@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:07 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/27 08:43:01 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/27 09:24:45 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include "../../inc/libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
 # endif
 
-int		ft_get_next_line(int fd, char **line);
+char	*ft_get_next_line(int fd);
 
-/*Utilities*/
-char	*ft_isnewchar(char *buff);
 #endif

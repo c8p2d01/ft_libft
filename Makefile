@@ -75,7 +75,6 @@ SRCFILES =	mem/ft_calloc.c \
 		lst/ft_lstiter.c \
 		lst/ft_lstmap.c \
 		\
-		gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		\
 		graph/ft_g_insert.c \
