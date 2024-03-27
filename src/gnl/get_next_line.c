@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:04 by cdahlhof          #+#    #+#             */
-/*   Updated: 2022/05/10 17:41:05 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/27 08:43:11 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static void	ft_buffjoinend(char **line, char *s2, int y)
  *	[0] EOF has been reached;
  *	[-1] An error happened;
 */
-int	get_next_line(int fd, char **line)
+int	ft_get_next_line(int fd, char **line)
 {
 	static char	buff[BUFFER_SIZE + 1];
 	int			y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:07 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/03 23:14:50 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/03/27 08:43:01 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #  define BUFFER_SIZE 32
 # endif
 
-int		get_next_line(int fd, char **line);
+int		ft_get_next_line(int fd, char **line);
 
 /*Utilities*/
 char	*ft_isnewchar(char *buff);
