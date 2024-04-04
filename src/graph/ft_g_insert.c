@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:24:35 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/04/04 17:53:52 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:06:12 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ void	ft_g_insert(t_gnode *node, t_gnode *next)
 	t_list	*new_link;
 	t_list	*check_link;
 
-	checkLink = node->links;
-	while (checkLink)
+	check_link = node->links;
+	while (check_link)
 	{
-		if (ft_is_link(checkLink->content, node, next))
+		if (ft_is_link(check_link->content, node, next))
 			return ;
-		checkLink = checkLink->next;
+		check_link = check_link->next;
 	}
-	newLink = ft_lstnew(ft_new_link(node, next));
-	ft_lstadd_back(&(node->links), newLink);
-	ft_lstadd_back(&(next->links), newLink);
+	new_link = ft_lstnew(ft_new_link(node, next));
+	ft_lstadd_back(&(node->links), new_link);
+	ft_lstadd_back(&(next->links), new_link);
 	return ;
 }

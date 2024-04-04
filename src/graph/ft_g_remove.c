@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:24:24 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/04/04 17:55:06 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:06:33 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ void	ft_g_unlink(t_gnode *node, t_gnode *next)
 
 	if (!node || !next)
 		return ;
-	rmvNode = node->links;
-	while (rmvNode)
+	rmv_node = node->links;
+	while (rmv_node)
 	{
-		if (ft_is_link(rmvNode->content, node, next))
+		if (ft_is_link(rmv_node->content, node, next))
 		{
-			link = rmvNode->content;
+			link = rmv_node->content;
 			if (link)
 			{
-				ft_lstdelone(rmvNode, NULL);
+				ft_lstdelone(rmv_node, NULL);
 				ft_g_unlink(next, node);
 			}
 			if (link)
 				free(link);
 			break ;
 		}
-		rmvNode = rmvNode->next;
+		rmv_node = rmv_node->next;
 	}
 }
 
@@ -55,10 +55,10 @@ void	ft_g_del_node(t_gnode *node, void (*del)(void*))
 	current_link = node->links;
 	while (current_link)
 	{
-		next_ink = current_link->next;
+		next_link = current_link->next;
 		actual_link = current_link->content;
 		ft_g_unlink(actual_link->from, actual_link->to);
-		current_link = next_ink;
+		current_link = next_link;
 	}
 	if (node->name)
 		free(node->name);
