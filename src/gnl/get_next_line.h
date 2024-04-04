@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:07 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/27 09:24:45 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:22:29 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@
 #  define BUFFER_SIZE 32
 # endif
 
-char	*ft_get_next_line(int fd);
+char	*get_next_line(int fd);
 
 #endif
