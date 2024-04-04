@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_g_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:24:35 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 22:55:38 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:53:52 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
  */
 void	ft_g_insert(t_gnode *node, t_gnode *next)
 {
-	t_list	*newLink;
-	t_list	*checkLink;
+	t_list	*new_link;
+	t_list	*check_link;
 
 	checkLink = node->links;
 	while (checkLink)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_g_remove.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:24:24 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 22:21:08 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:55:06 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  */
 void	ft_g_unlink(t_gnode *node, t_gnode *next)
 {
-	t_list	*rmvNode;
+	t_list	*rmv_node;
 	t_link	*link;
 
 	if (!node || !next)
@@ -46,19 +46,19 @@ void	ft_g_unlink(t_gnode *node, t_gnode *next)
  */
 void	ft_g_del_node(t_gnode *node, void (*del)(void*))
 {
-	t_list	*currentLink;
-	t_list	*nextLink;
-	t_link	*actualLink;
+	t_list	*current_link;
+	t_list	*next_link;
+	t_link	*actual_link;
 
 	if (!node)
 		return ;
-	currentLink = node->links;
-	while (currentLink)
+	current_link = node->links;
+	while (current_link)
 	{
-		nextLink = currentLink->next;
-		actualLink = currentLink->content;
-		ft_g_unlink(actualLink->from, actualLink->to);
-		currentLink = nextLink;
+		next_ink = current_link->next;
+		actual_link = current_link->content;
+		ft_g_unlink(actual_link->from, actual_link->to);
+		current_link = next_ink;
 	}
 	if (node->name)
 		free(node->name);

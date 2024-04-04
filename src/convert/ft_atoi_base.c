@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 22:31:54 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:52:33 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int	skipWhitespace(const char *s, const char *base)
+static int	skip_whitespace(const char *s, const char *base)
 {
-	int		toSkip;
+	int		to_skip;
 	int		i;
 	char	*whitespaces;
 
-	toSkip = 0;
+	to_skip = 0;
 	whitespaces = "\t\n\v\f\r ";
 	i = 0;
 	while (s && s[i])
 	{
 		if (ft_strchr(whitespaces, s[i]) && !ft_strchr(base, s[i]))
 		{
-			toSkip++;
+			to_skip++;
 			i++;
 			continue ;
 		}
 		break ;
 	}
-	return (toSkip);
+	return (to_skip);
 }
 
-int	isNegative(const char *numberStr, int *i, const char *base)
+static int	is_negative(const char *numberStr, int *i, const char *base)
 {
 	char	sign;
 	int		result;
@@ -53,21 +53,21 @@ int	isNegative(const char *numberStr, int *i, const char *base)
 	return (result);
 }
 
-int	charInBase(char i, const char *base)
+static int	char_in_base(char i, const char *base)
 {
 	if (i)
 		return (base - ft_strchr(base, i));
 	return (i);
 }
 
-int	valueInBase(char i, const char *base)
+static int	value_in_base(char i, const char *base)
 {
-	char	*charInBase;
+	char	*char_in_b;
 
-	charInBase = ft_strchr(base, i);
-	if (!charInBase)
+	char_in_b = ft_strchr(base, i);
+	if (!char_in_b)
 		return (0);
-	return (charInBase - base);
+	return (char_in_b - base);
 }
 
 int	ft_atoi_base(const char *numberStr, const char *base)
@@ -77,12 +77,12 @@ int	ft_atoi_base(const char *numberStr, const char *base)
 	int	result;
 
 	result = 0;
-	i = skipWhitespace(numberStr, base);
-	sign = isNegative(numberStr, &i, base);
-	while (charInBase(numberStr[i], base))
+	i = skip_whitespace(numberStr, base);
+	sign = is_negative(numberStr, &i, base);
+	while (char_in_base(numberStr[i], base))
 	{
 		result *= ft_strlen(base);
-		result += valueInBase(numberStr[i], base);
+		result += value_in_base(numberStr[i], base);
 		i++;
 	}
 	return (result * sign);

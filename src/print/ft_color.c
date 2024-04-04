@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_color.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 20:30:46 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:00:39 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	create_rgb(int r, int g, int b)
 /**
  * @param color => ("rrbbgg")
 */
-int	terminalRGB(char *color)
+int	terminal_rgb(char *color)
 {
-	char			*colorSnippet;
+	char			*color_snippet;
 	unsigned char	rgb[3];
 	int				i;
 
@@ -95,15 +95,15 @@ int	terminalRGB(char *color)
 	while (i < 3)
 	{
 		rgb[i] = 0;
-		colorSnippet = ft_substr(color, i * 2, 2);
-		if (ft_strlen(colorSnippet))
+		color_snippet = ft_substr(color, i * 2, 2);
+		if (ft_strlen(color_snippet))
 		{
-			printf("\t\t%s\n", colorSnippet);
-			ft_tolower(colorSnippet[0]);
-			ft_tolower(colorSnippet[1]);
-			rgb[i] = ft_atoi_base(colorSnippet, "0123456789abcdef");
+			printf("\t\t%s\n", color_snippet);
+			ft_tolower(color_snippet[0]);
+			ft_tolower(color_snippet[1]);
+			rgb[i] = ft_atoi_base(color_snippet, "0123456789abcdef");
 		}
-		free (colorSnippet);
+		free (color_snippet);
 		i++;
 	}
 	printf("\e[48;%i;%i;%im", rgb[0], rgb[1], rgb[2]);

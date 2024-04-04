@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_formatSpaces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/15 01:01:11 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:01:22 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
  * @param s [char const *] char * to be split
  * @return [char *] shortet array
 */
-void	ft_formatSpaces(char *s)
+void	ft_format_spaces(char *s)
 {
 	int		cp_from;
 	int		cp_to;
-	int	len;
+	int		len;
 
 	if (!s)
 		return ;

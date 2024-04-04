@@ -67,17 +67,17 @@ int	ft_g_capacity(t_link *link, t_gnode *node)
  */
 bool	ft_has_link(t_gnode *a, t_gnode *b)
 {
-	t_list	*currentLink;
+	t_list	*current_link;
 
 	if (!a || !b)
 		return (false);
-	currentLink = a->links;
-	while (currentLink)
+	current_link = a->links;
+	while (current_link)
 	{
-		if (((t_link *)(currentLink->content))->active &&
-								ft_is_link(currentLink->content, a, b))
+		if (((t_link *)(current_link->content))->active &&
+								ft_is_link(current_link->content, a, b))
 			return (true);
-		currentLink = currentLink->next;
+		current_link = current_link->next;
 	}
 	return (false);
 }
