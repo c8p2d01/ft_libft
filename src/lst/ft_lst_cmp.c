@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lst_cmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/04/04 22:39:36 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/13 20:51:51 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+bool	ft_lst_iseq(t_list *a, t_list *b)
 {
-	t_list	*i;
-
-	i = NULL;
-	if (!new)
-		return ;
-	if (!(*lst))
-		*lst = new;
-	else
-	{
-		i = ft_lstlast((*lst));
-		i->next = new;
-		new->prev = i;
-	}
+	if (a == b || \
+		a->content == b->content)
+		return(true);
+	return (false);
 }

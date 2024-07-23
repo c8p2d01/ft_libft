@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstfirst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 20:31:02 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 20:31:10 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:33:54 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 t_list	*ft_lstfirst(t_list *lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->prev != NULL)
+	while (lst && lst->prev != NULL)
 		lst = lst->prev;
 	return (lst);
 }

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_unique_insert.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/04/04 22:39:36 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/04/13 20:52:29 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_unique_insert(t_list **lst, t_list *new, \
+											bool (*iseq)(t_list *a, t_list *b))
 {
 	t_list	*i;
 
@@ -20,11 +21,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!new)
 		return ;
 	if (!(*lst))
-		*lst = new;
-	else
+		(*lst) = new;
+	(*lst) = ft_lstfirst((*lst));
+	while(lst && (*lst) && !iseq((*lst), new))
+		(*lst) = (*lst)->next;
+	if (!(*lst)->next)
 	{
-		i = ft_lstlast((*lst));
-		i->next = new;
-		new->prev = i;
+		new->prev = (*lst);
+		(*lst)->next = new;
 	}
 }
