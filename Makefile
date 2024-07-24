@@ -83,7 +83,9 @@ SRCFILES =	mem/ft_calloc.c \
 		graph/ft_graph.c \
 		graph/ft_link.c \
 		\
-		vector/normalize.c \
+		vector/normalise.c \
+		vector/resize.c \
+		vector/rotate.c \
 		vector/vec_len.c \
 
 

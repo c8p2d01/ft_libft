@@ -22,6 +22,7 @@
 # include "../src/gnl/get_next_line.h"
 # include "../src/lst/ft_list.h"
 # include "../src/graph/ft_graph.h"
+# include "../src/vector/ft_vector.h"
 
 /*
 	Memory mainpulation
@@ -118,16 +119,5 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-/*
-	Vector
-*/
-
-double		veclen(int dimension, ...);
-double		veclen_2d(double x, double y);
-double		veclen_3d(double x, double y, double z);
-void		normalize(int dimension, ...);
-void		normalize_2d(double *x, double *y);
-void		normalize_3d(double *x, double *y, double *z);
 
 #endif

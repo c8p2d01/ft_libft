@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "ft_vector.h"
 
 /**
  * @brief return the length of a given vector
@@ -61,5 +61,32 @@ double	veclen_3d(double x, double y, double z)
 	sum = pow(x, 2);
 	sum += pow(y, 2);
 	sum += pow(z, 2);
+	return (pow(sum, 0.5));
+}
+
+/**
+ * @brief return the length of a two dimensional vector
+*/
+double veclen2d(vec2d_t *vector)
+{
+	double	sum;
+
+	sum = 0;
+	sum = pow(vector->x, 2);
+	sum += pow(vector->y, 2);
+	return (pow(sum, 0.5));
+}
+
+/**
+ * @brief return the length of a two dimensional vector
+*/
+double veclen3d(vec3d_t *vector)
+{
+	double	sum;
+
+	sum = 0;
+	sum = pow(vector->x, 2);
+	sum += pow(vector->y, 2);
+	sum += pow(vector->z, 2);
 	return (pow(sum, 0.5));
 }

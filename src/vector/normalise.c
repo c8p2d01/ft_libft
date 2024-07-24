@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                        :+:      :+:    :+:   */
+/*   normalise.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "ft_vector.h"
+
 
 /**
  * @brief set the length of a vector to 1 unit
  * @param dimension amount of given additional values
  * @warning all following argunemts must be pointers to the values
 */
-void	normalize(int dimension, ...)
+void	normalise(int dimension, ...)
 {
 	double	len[2];
 	double	*val;
@@ -50,7 +51,7 @@ void	normalize(int dimension, ...)
  * @brief set the length of two dimensional vector to 1 unit
  * @warning all following argunemts must be pointers to the values
 */
-void	normalize_2d(double *x, double *y)
+void	normalise_2d(double *x, double *y)
 {
 	double	len;
 
@@ -65,7 +66,7 @@ void	normalize_2d(double *x, double *y)
  * @brief set the length of three dimensional vector to 1 unit
  * @warning all following argunemts must be pointers to the values
 */
-void	normalize_3d(double *x, double *y, double *z)
+void	normalise_3d(double *x, double *y, double *z)
 {
 	double	len;
 
@@ -75,4 +76,33 @@ void	normalize_3d(double *x, double *y, double *z)
 	*x = *x / len;
 	*y = *y / len;
 	*z = *z / len;
+}
+
+/**
+ * @brief set the length of two dimensional vector to 1 unit
+*/
+void	normalise2d(vec2d_t *vector)
+{
+	double	len;
+
+	len = veclen2d(vector);
+	if (len == 0)
+		return ;
+	vector->x = vector->x / len;
+	vector->y = vector->y / len;
+}
+
+/**
+ * @brief set the length of three dimensional vector to 1 unit
+*/
+void	normalise3d(vec3d_t *vector)
+{
+	double	len;
+
+	len = veclen3d(vector);
+	if (len == 0)
+		return ;
+	vector->x = vector->x / len;
+	vector->y = vector->y / len;
+	vector->z = vector->z / len;
 }
