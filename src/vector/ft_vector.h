@@ -35,4 +35,7 @@ void	resize3d(vec3d_t *vector, double size);
 
 vec2d_t	rotate2d(vec2d_t *vector, double degree);
 
+double	angle2d(vec2d_t a, vec2d_t b);
+double	angle3d(vec3d_t a, vec3d_t b);
+
 #endif
