@@ -33,47 +33,49 @@ int	colorflow(int i)
 	return (0);
 }
 
-// long	createGradientColor(float fraction, int r1, short g1, short b1, short r2
-// 														, short g2, short b2)
-// {
-// 	int	red;
-// 	int	green;
-// 	int	blue;
-//
-// 	red= r1 + fraction * (r2 - r1);
-// 	green= g1 + fraction * (g2 - g1);
-// 	blue	 = b1 + fraction * (b2 - b1);
-// 	return (0 << 24 | (unsigned char)red << 16 |	(unsigned char)green << 8 |
-// 													(unsigned char)blue);
-// }
-//
-// long	createMultiGradient(float fraction, int nColor, ...)
-// {
-// 	--nColor;
-// 	int		startGradient = (int)(fraction * (float)nColor);
-// 	int		start[3] = {0, 0, 0};
-// 	int		next[3] = {0, 0, 0};
-// 	int		skip = 0;
-// 	va_list	col;
-// 	va_start(col, nColor);
-// 	while (skip < startGradient * 3)
-// 	{
-// 		(void)va_arg(col, int);
-// 		skip++;
-// 	}
-// 	for (int i = 0; i < 3; i++)
-// 	{
-// 		start[i] = va_arg(col, int);
-// 	}
-// 	for (int i = 0; i < 3; i++)
-// 	{
-// 		next[i] = va_arg(col, int);
-// 	}
-//
-// 	float	newFraction = (fraction * (float)nColor) - (startGradient);
-// 	return (createGradientColor(newFraction, start[0], start[1], start[2],
-//												next[0], next[1], next[2]));
-// }
+long	createGradientColor(float fraction, int r1, short g1, short b1, short r2
+														, short g2, short b2)
+{
+	fraction -= (int)fraction;
+	int	red;
+	int	green;
+	int	blue;
+
+	red= r1 + fraction * (r2 - r1);
+	green= g1 + fraction * (g2 - g1);
+	blue	 = b1 + fraction * (b2 - b1);
+	return (0 << 24 | (unsigned char)red << 16 |	(unsigned char)green << 8 |
+													(unsigned char)blue);
+}
+
+long	createMultiGradient(float fraction, int nColor, ...)
+{
+	fraction -= (int)fraction;
+	--nColor;
+	int		startGradient = (int)(fraction * (float)nColor);
+	int		start[3] = {0, 0, 0};
+	int		next[3] = {0, 0, 0};
+	int		skip = 0;
+	va_list	col;
+	va_start(col, nColor);
+	while (skip < startGradient * 3)
+	{
+		(void)va_arg(col, int);
+		skip++;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		start[i] = va_arg(col, int);
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		next[i] = va_arg(col, int);
+	}
+
+	float	newFraction = (fraction * (float)nColor) - (startGradient);
+	return (createGradientColor(newFraction, start[0], start[1], start[2],
+												next[0], next[1], next[2]));
+}
 
 int	create_rgb(int r, int g, int b)
 {

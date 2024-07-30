@@ -96,9 +96,9 @@ int			ft_printf_fd(int fd, const char *str, ...);
 void		printfile(int fd);
 int			create_rgb(int r, int g, int b);
 int			print_color_from_hex(char *color);
-// long		createGradientColor(float fraction, int r1, short g1, short b1,
-//												 short r2, short g2, short b2);
-// long		createMultiGradient(float fraction, int nColor, ...);
+long		createGradientColor(float fraction, int r1, short g1, short b1,
+												 short r2, short g2, short b2);
+long		createMultiGradient(float fraction, int nColor, ...);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
