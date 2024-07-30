@@ -87,7 +87,7 @@ SRCFILES =	mem/ft_calloc.c \
 		vector/normalise.c \
 		vector/resize.c \
 		vector/rotate.c \
-		vector/vec_len.c \
+		vector/veclen.c \
 
 
 
