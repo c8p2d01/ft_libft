@@ -38,6 +38,7 @@ SRCFILES =	mem/ft_calloc.c \
 		convert/ft_toupper.c \
 		convert/ft_tolower.c \
 		convert/ft_split.c \
+		convert/ft_limit.c \
 		\
 		string/ft_formatSpaces.c \
 		string/ft_strlen.c \
