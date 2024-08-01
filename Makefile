@@ -21,6 +21,7 @@ SRCFILES =	mem/ft_calloc.c \
 		mem/ft_memchr.c \
 		mem/ft_memcmp.c \
 		mem/ft_char_rep.c \
+		mem/ft_garbage.c \
 		\
 		check/ft_isalpha.c \
 		check/ft_isdigit.c \

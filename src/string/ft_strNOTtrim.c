@@ -34,7 +34,7 @@ char	*ft_strNOTtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_strchr(set, s1[end - 1]) == 0)
 		end--;
-	str = malloc(sizeof(*s1) * (end - start + 1));
+	str = ft_malloc(sizeof(*s1) * (end - start + 1));
 	if (!str)
 		return (NULL);
 	i = 0;

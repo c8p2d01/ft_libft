@@ -19,7 +19,7 @@ t_link	*ft_new_link(t_gnode *in, t_gnode *out)
 {
 	t_link	*res;
 
-	res = malloc(sizeof(t_link));
+	res = ft_malloc(sizeof(t_link));
 	if (!res)
 		return (NULL);
 	*res = (t_link){

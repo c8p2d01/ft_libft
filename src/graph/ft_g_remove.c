@@ -34,7 +34,7 @@ void	ft_g_unlink(t_gnode *node, t_gnode *next)
 				ft_g_unlink(next, node);
 			}
 			if (link)
-				free(link);
+				ft_free(link);
 			break ;
 		}
 		rmv_node = rmv_node->next;
@@ -61,10 +61,10 @@ void	ft_g_del_node(t_gnode *node, void (*del)(void*))
 		current_link = next_link;
 	}
 	if (node->name)
-		free(node->name);
+		ft_free(node->name);
 	if (node->links)
-		free(node->links);
+		ft_free(node->links);
 	if (del && node->content)
 		del(node->content);
-	free(node);
+	ft_free(node);
 }

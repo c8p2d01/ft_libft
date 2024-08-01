@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 	long	nlong;
 
 	digits = ft_digits(n);
-	dest = malloc(sizeof(char) * digits + 1);
+	dest = ft_malloc(sizeof(char) * digits + 1);
 	nlong = n;
 	if (!dest)
 		return (NULL);

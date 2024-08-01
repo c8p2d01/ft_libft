@@ -30,8 +30,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	}
 	if (lst && del && lst->content)
 		del(lst->content);
+	lst->content = NULL;
 	if (lst)
-		free(lst);
+	{
+		ft_free(lst);
+		lst = NULL;
+	}
 	lst = NULL;
 }
 

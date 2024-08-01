@@ -18,6 +18,6 @@ void	*ft_realloc(void *old, size_t ol, size_t add)
 
 	new = ft_calloc(ol + add, 1);
 	ft_memcpy(new, old, ol);
-	free(old);
+	ft_free(old);
 	return ((void *)new);
 }

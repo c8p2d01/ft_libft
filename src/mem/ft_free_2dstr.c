@@ -24,15 +24,15 @@ int	free_2dstr(char **s)
 	i = 0;
 	while (s && s[i])
 	{
-		free(s[i]);
+		ft_free(s[i]);
 		i ++;
 	}
-	free(s);
+	ft_free(s);
 	return (0);
 }
 
 void	unreach(void *freeMe)
 {
-	free(freeMe);
+	ft_free(freeMe);
 	freeMe = NULL;
 }

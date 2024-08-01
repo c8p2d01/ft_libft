@@ -48,14 +48,14 @@ double	ft_atof(char *str)
 	double	ret;
 
 	len = ft_strlen(str);
-	front = malloc(sizeof(char) * len);
+	front = ft_malloc(sizeof(char) * len);
 	if (!len || !front)
 		return (0);
 	ret = 0;
 	behind = ft_strchr(str, '.');
 	if (!behind)
 	{
-		free(front);
+		ft_free(front);
 		return ((double)(ft_atoi(str)));
 	}
 	if (ft_strlen(behind) < len)
@@ -65,6 +65,6 @@ double	ft_atof(char *str)
 	}
 	behind++;
 	ret = ft_final(ft_atoi(front), ft_getbehind(behind), str[0]);
-	free(front);
+	ft_free(front);
 	return (ret);
 }
