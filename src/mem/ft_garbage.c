@@ -72,6 +72,11 @@ void	ft_free(void *del_block)
 	free(del_block);
 }
 
+void	ft_clean_allocs()
+{
+	ft_lstclear(head(), free);
+}
+
 // void	print_garb()
 // {
 // 	t_list	**garb;

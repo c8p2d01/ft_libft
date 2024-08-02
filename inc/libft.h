@@ -44,6 +44,7 @@ void		ft_char_rep(char *str, char target, char replacement);
 t_list		**head();
 void		*ft_malloc(size_t	size);
 void		ft_free(void *del_block);
+void		ft_clean_allocs();
 
 /*
 	Checks
