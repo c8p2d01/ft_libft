@@ -40,3 +40,32 @@ char	*get_next_line(int fd)
 	ft_bzero(leftover, ft_strlen(leftover));
 	return (line);
 }
+
+char	*get_until(int fd, char d)
+{
+	char		*line;
+	static char	buffer[BUFFER_SIZE + 1];
+	int			reed;
+	char		*leftover;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
+		return (NULL);
+	line = ft_strdup(buffer);
+	ft_bzero(buffer, ft_strlen(line));
+	reed = BUFFER_SIZE;
+	while (!ft_strchr(line, d) && reed > 0)
+	{
+		line = ft_realloc(line, ft_strlen(line), BUFFER_SIZE + 1);
+		reed = read(fd, line + ft_strlen(line), BUFFER_SIZE);
+		if (reed <= 0)
+		{
+			if (ft_strlen(line))
+				return (line);
+			return (free(line), NULL);
+		}
+	}
+	leftover = ft_strchr(line, d) + 1;
+	ft_memcpy(buffer, leftover, ft_strlen(leftover));
+	ft_bzero(leftover, ft_strlen(leftover));
+	return (line);
+}

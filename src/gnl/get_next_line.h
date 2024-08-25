@@ -24,4 +24,6 @@
 
 char	*get_next_line(int fd);
 
+char	*get_until(int fd, char d);
+
 #endif
