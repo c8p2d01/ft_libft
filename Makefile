@@ -7,7 +7,7 @@ SOURCE:=	./src
 
 # Other variables:
 COMPILER:=	cc
-COMPFLAGS:=	-Wall -Werror -Wextra -g -c
+COMPFLAGS:=	#-Wall -Werror -Wextra -g -c
 
 # Source Files:
 SRCFILES =	mem/ft_calloc.c \
