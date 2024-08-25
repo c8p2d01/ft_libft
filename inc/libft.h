@@ -90,6 +90,7 @@ char		*ft_strNOTtrim(char const *s1, char const *set);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 void		ft_formatSpaces(char *s);
+void		str_sed(char **base, char *ind, char *add);
 
 /*
 	Printing
