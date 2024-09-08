@@ -11,7 +11,6 @@ COMPFLAGS:=	-Wall -Werror -Wextra -g -c
 
 # Source Files:
 SRCFILES =	mem/ft_calloc.c \
-		mem/ft_realloc.c \
 		mem/ft_free_2dstr.c \
 		mem/ft_bzero.c \
 		mem/ft_memset.c \
@@ -21,6 +20,8 @@ SRCFILES =	mem/ft_calloc.c \
 		mem/ft_memchr.c \
 		mem/ft_memcmp.c \
 		mem/ft_char_rep.c \
+		mem/memory.c \
+		string/ft_realloc.c \
 		\
 		check/ft_isalpha.c \
 		check/ft_isdigit.c \

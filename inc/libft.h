@@ -41,6 +41,11 @@ void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		ft_char_rep(char *str, char target, char replacement);
 
+t_list	**memory(void);
+void	*ft_malloc(size_t size);
+void	ft_free(void *del_block);
+void	ft_clean_allocs();
+
 /*
 	Checks
 */
