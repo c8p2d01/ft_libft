@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/07/23 15:56:21 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 13:18:06 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,8 @@ typedef struct s_color {
 t_color		new_color(int r, int g, int b);
 int			create_rgb(int r, int g, int b);
 int			print_color_from_hex(char *color);
-long		createGradientColor(float fraction, t_color a, t_color b);
-long		createMultiGradient(float fraction, int nColor, ...);
+long		create_gradient_color(float fraction, t_color a, t_color b);
+long		create_multi_gradient(float fraction, int nColor, ...);
 
 /*
 	List
