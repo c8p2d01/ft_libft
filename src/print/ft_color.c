@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/04/04 18:00:39 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 13:07:19 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ long	create_multi_gradient(float fraction, int nColor, ...)
 	start = new_color(va_arg(col, int), va_arg(col, int), va_arg(col, int));
 	next = new_color(va_arg(col, int), va_arg(col, int), va_arg(col, int));
 	fraction = (fraction * (float)nColor) - (start_gradient);
-	return (createGradientColor(fraction, start, next));
+	return (create_gradient_color(fraction, start, next));
 }
 
 /**
