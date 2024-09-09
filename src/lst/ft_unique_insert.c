@@ -23,7 +23,7 @@ void	ft_unique_insert(t_list **lst, t_list *new, \
 	if (!(*lst))
 		(*lst) = new;
 	(*lst) = ft_lstfirst((*lst));
-	while(lst && (*lst) && !iseq((*lst), new))
+	while (lst && (*lst) && !iseq((*lst), new))
 		(*lst) = (*lst)->next;
 	if (!(*lst)->next)
 	{

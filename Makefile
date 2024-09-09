@@ -54,11 +54,12 @@ SRCFILES =	mem/ft_calloc.c \
 		string/ft_substr.c \
 		string/ft_strjoin.c \
 		string/ft_strtrim.c \
-		string/ft_strNOTtrim.c \
+		string/ft_str_not_trim.c \
 		string/ft_strmapi.c \
 		string/ft_striteri.c \
 		\
 		print/ft_color.c \
+		print/ft_color_basics.c \
 		print/ft_printfile.c \
 		print/ft_putchar_fd.c \
 		print/ft_putstr_fd.c \

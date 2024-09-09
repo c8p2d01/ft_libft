@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_color_basics.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 02:52:15 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/09/09 02:53:26 by cdahlhof         ###   ########.fr       */
+/*   Created: 2022/05/10 17:41:12 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/04/04 18:00:39 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "../../inc/libft.h"
 
-t_vec2d	rotate2d(t_vec2d *vector, double degree)
+t_color	new_color(int r, int g, int b)
 {
-	t_vec2d	result;
-	double	rad;
+	t_color	res;
 
-	rad = degree * PI / 180;
-	result.x = vector->x * cos(rad) - vector->y * sin(rad);
-	result.y = vector->x * sin(rad) + vector->y * cos(rad);
-	return (result);
+	res.r = r;
+	res.g = g;
+	res.b = b;
+	return (res);
+}
+
+int	create_rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
 }
