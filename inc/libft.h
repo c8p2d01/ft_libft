@@ -86,7 +86,7 @@ char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
-char		*ft_strNOTtrim(char const *s1, char const *set);
+char		*ft_str_not_trim(char const *s1, char const *set);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 void		ft_formatSpaces(char *s);
@@ -99,16 +99,27 @@ void		str_sed(char **base, char *ind, char *add);
 int			ft_printf(const char *str, ...);
 int			ft_printf_fd(int fd, const char *str, ...);
 void		printfile(int fd);
-int			create_rgb(int r, int g, int b);
-int			print_color_from_hex(char *color);
-long		createGradientColor(float fraction, int r1, short g1, short b1,
-												 short r2, short g2, short b2);
-long		createMultiGradient(float fraction, int nColor, ...);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 int			ft_putnbr_base_fd(unsigned int num, char *base, int fd);
+
+/*
+	Color
+*/
+
+typedef struct s_color {
+	int8_t	r;
+	int8_t	g;
+	int8_t	b;
+}	t_color;
+
+t_color		new_color(int r, int g, int b);
+int			create_rgb(int r, int g, int b);
+int			print_color_from_hex(char *color);
+long		createGradientColor(float fraction, t_color a, t_color b);
+long		createMultiGradient(float fraction, int nColor, ...);
 
 /*
 	List

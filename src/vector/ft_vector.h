@@ -1,5 +1,17 @@
-#ifndef VECTOR_H
-# define VECTOR_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_vector.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/09 02:33:58 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/09/09 02:35:25 by cdahlhof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_VECTOR_H
+# define FT_VECTOR_H
 
 # include "../../inc/libft.h"
 
@@ -7,35 +19,35 @@
 #  define PI 3.14159265359
 # endif
 
-typedef struct vec2d_s {
+typedef struct s_vec2d {
 	double	x;
 	double	y;
-} vec2d_t;
+}	t_vec2d;
 
-typedef struct vec3d_s {
+typedef struct s_vec3d {
 	double	x;
 	double	y;
 	double	z;
-} vec3d_t;
+}	t_vec3d;
 
 double	veclen(int dimension, ...);
 double	veclen_2d(double x, double y);
 double	veclen_3d(double x, double y, double z);
-double	veclen2d(vec2d_t *vector);
-double	veclen3d(vec3d_t *vector);
+double	veclen2d(t_vec2d *vector);
+double	veclen3d(t_vec3d *vector);
 
 void	normalise(int dimension, ...);
 void	normalise_2d(double *x, double *y);
 void	normalise_3d(double *x, double *y, double *z);
-void	normalise2d(vec2d_t *vector);
-void	normalise3d(vec3d_t *vector);
+void	normalise2d(t_vec2d *vector);
+void	normalise3d(t_vec3d *vector);
 
-void	resize2d(vec2d_t *vector, double size);
-void	resize3d(vec3d_t *vector, double size);
+void	resize2d(t_vec2d *vector, double size);
+void	resize3d(t_vec3d *vector, double size);
 
-vec2d_t	rotate2d(vec2d_t *vector, double degree);
+t_vec2d	rotate2d(t_vec2d *vector, double degree);
 
-double	angle2d(vec2d_t a, vec2d_t b);
-double	angle3d(vec3d_t a, vec3d_t b);
+double	angle2d(t_vec2d a, t_vec2d b);
+double	angle3d(t_vec3d a, t_vec3d b);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_len.c                                          :+:      :+:    :+:   */
+/*   veclen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:12:53 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 20:09:40 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 02:53:42 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ double	veclen_3d(double x, double y, double z)
 /**
  * @brief return the length of a two dimensional vector
 */
-double veclen2d(vec2d_t *vector)
+double	veclen2d(t_vec2d *vector)
 {
 	double	sum;
 
@@ -80,7 +80,7 @@ double veclen2d(vec2d_t *vector)
 /**
  * @brief return the length of a two dimensional vector
 */
-double veclen3d(vec3d_t *vector)
+double	veclen3d(t_vec3d *vector)
 {
 	double	sum;
 

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   normalise.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:18:59 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/14 21:14:18 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 02:36:30 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vector.h"
-
 
 /**
  * @brief set the length of a vector to 1 unit
@@ -81,7 +80,7 @@ void	normalise_3d(double *x, double *y, double *z)
 /**
  * @brief set the length of two dimensional vector to 1 unit
 */
-void	normalise2d(vec2d_t *vector)
+void	normalise2d(t_vec2d *vector)
 {
 	double	len;
 
@@ -95,7 +94,7 @@ void	normalise2d(vec2d_t *vector)
 /**
  * @brief set the length of three dimensional vector to 1 unit
 */
-void	normalise3d(vec3d_t *vector)
+void	normalise3d(t_vec3d *vector)
 {
 	double	len;
 

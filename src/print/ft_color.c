@@ -33,53 +33,48 @@ int	colorflow(int i)
 	return (0);
 }
 
-long	createGradientColor(float fraction, int r1, short g1, short b1, short r2
-														, short g2, short b2)
+long	create_gradient_color(float fraction, t_color a, t_color b)
 {
-	fraction -= (int)fraction;
 	int	red;
 	int	green;
 	int	blue;
 
-	red= r1 + fraction * (r2 - r1);
-	green= g1 + fraction * (g2 - g1);
-	blue	 = b1 + fraction * (b2 - b1);
-	return (0 << 24 | (unsigned char)red << 16 |	(unsigned char)green << 8 |
-													(unsigned char)blue);
+	fraction -= (int)fraction;
+	red = a.r + fraction * (b.r - a.r);
+	green = a.g + fraction * (b.g - a.g);
+	blue = a.b + fraction * (b.b - a.b);
+	return (0 << 24 | (unsigned char)red << 16 | (unsigned char)green << 8 \
+													| (unsigned char)blue);
 }
 
-long	createMultiGradient(float fraction, int nColor, ...)
+/**
+ * @brief return a color on the range if colors provided at the point of \
+ * 'fraction' of the total range, colors given ad int r,g,b argiments
+ * @param fraction position in the color range
+ * @param nColor number of triplet arguments defining the used colors, min 2
+ */
+long	create_multi_gradient(float fraction, int nColor, ...)
 {
+	int		start_gradient;
+	t_color	start;
+	t_color	next;
+	int		skip;
+	va_list	col;
+
+	start_gradient = (int)(fraction * (float)nColor);
+	skip = 0;
 	fraction -= (int)fraction;
 	--nColor;
-	int		startGradient = (int)(fraction * (float)nColor);
-	int		start[3] = {0, 0, 0};
-	int		next[3] = {0, 0, 0};
-	int		skip = 0;
-	va_list	col;
 	va_start(col, nColor);
-	while (skip < startGradient * 3)
+	while (skip < start_gradient * 3)
 	{
 		(void)va_arg(col, int);
 		skip++;
 	}
-	for (int i = 0; i < 3; i++)
-	{
-		start[i] = va_arg(col, int);
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		next[i] = va_arg(col, int);
-	}
-
-	float	newFraction = (fraction * (float)nColor) - (startGradient);
-	return (createGradientColor(newFraction, start[0], start[1], start[2],
-												next[0], next[1], next[2]));
-}
-
-int	create_rgb(int r, int g, int b)
-{
-	return (r << 16 | g << 8 | b);
+	start = new_color(va_arg(col, int), va_arg(col, int), va_arg(col, int));
+	next = new_color(va_arg(col, int), va_arg(col, int), va_arg(col, int));
+	fraction = (fraction * (float)nColor) - (start_gradient);
+	return (createGradientColor(fraction, start, next));
 }
 
 /**

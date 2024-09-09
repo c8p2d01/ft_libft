@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   resize.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/09 02:36:35 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/09/09 02:55:49 by cdahlhof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_vector.h"
 
 /**
@@ -8,14 +20,13 @@
 */
 void	resize(int dimension, ...)
 {
-	double	len[2];
+	double	len[3];
 	double	*val;
-	double	size;
 	va_list	coordinate;
 	int		i;
 
 	va_start(coordinate, dimension);
-	size = (double) *va_arg(coordinate, double *);
+	len[2] = (double) *va_arg(coordinate, double *);
 	i = 0;
 	while (i++ < dimension)
 	{
@@ -27,12 +38,12 @@ void	resize(int dimension, ...)
 	if (len[0] == 0)
 		return ;
 	va_start(coordinate, dimension);
-	size = (double) *va_arg(coordinate, double *);
+	len[2] = (double) *va_arg(coordinate, double *);
 	i = 0;
 	while (i++ < dimension)
 	{
 		val = va_arg(coordinate, double *);
-		*val = (*val / len[0]) * size;
+		*val = (*val / len[0]) * len[2];
 	}
 }
 
@@ -72,18 +83,17 @@ void	resize_3d(double *x, double *y, double *z, double size)
 /**
  * set the length of a 2 dimensional vector
  */
-void	resize2d(vec2d_t *vector, double size)
+void	resize2d(t_vec2d *vector, double size)
 {
 	normalise2d(vector);
 	vector->x = vector->x * size;
 	vector->y = vector->y * size;
 }
 
-
 /**
  * set the length of a 3 dimensional vector
  */
-void	resize3d(vec3d_t *vector, double size)
+void	resize3d(t_vec3d *vector, double size)
 {
 	normalise3d(vector);
 	vector->x = vector->x * size;
