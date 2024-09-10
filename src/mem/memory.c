@@ -17,6 +17,7 @@ void	*ft_malloc(size_t size)
 	content = malloc(size);
 	if (!content)
 		exit(1);
+	ft_bzero(content, size);
 	new = ft_lstnew(content);
 	mem = *memory();
 	if (mem != NULL)
@@ -39,13 +40,16 @@ void	ft_free(void *del_block)
 	{
 		*mem_list = p_list->next;
 	}
-	while (p_list)
+	else
 	{
-		if (p_list->content && p_list->content == del_block)
+		while (p_list)
 		{
-			break;
+			if (p_list->content && p_list->content == del_block)
+			{
+				break;
+			}
+			p_list = (p_list)->next;
 		}
-		p_list = (p_list)->next;
 	}
 	ft_lstdelone(p_list, NULL);
 	free(del_block);
