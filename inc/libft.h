@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/09/10 19:17:04 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:18:08 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		ft_char_rep(char *str, char target, char replacement);
 t_list		**memory(void);
 void		*ft_malloc(size_t size);
 void		ft_free(void *del_block);
-void		ft_clean_allocs();
+void		ft_clean_allocs(void);
 
 /*
 	Checks
