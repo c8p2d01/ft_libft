@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   memory.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/10 18:46:18 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/09/10 18:47:54 by cdahlhof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
@@ -46,7 +57,7 @@ void	ft_free(void *del_block)
 		{
 			if (p_list->content && p_list->content == del_block)
 			{
-				break;
+				break ;
 			}
 			p_list = (p_list)->next;
 		}
@@ -56,7 +67,7 @@ void	ft_free(void *del_block)
 	del_block = NULL;
 }
 
-void	ft_clean_allocs()
+void	ft_clean_allocs(void)
 {
 	ft_lstclear(memory(), free);
 }
@@ -110,5 +121,3 @@ void	ft_clean_allocs()
 // 	printf("freed\n");
 // 	print_garb();
 // }
-
-
