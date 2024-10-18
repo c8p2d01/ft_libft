@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/03/27 21:05:42 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 02:33:53 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ char	**ft_set_split(char const *s, char *set)
 
 // int main()
 // {
-// 	char input[] = "this is\ta string delimited\tby both spaces\t \t\tand tabs\t\t\t\t  lal   \t";
+// 	char input[] = "this is\ta string delimited\tby ... line too\tlong \t lal";
 // 	char **result;
 
 // 	result = ft_set_split(input, " \t");

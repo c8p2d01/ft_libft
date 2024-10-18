@@ -16,6 +16,6 @@ bool	ft_lst_iseq(t_list *a, t_list *b)
 {
 	if (a == b || \
 		a->content == b->content)
-		return(true);
+		return (true);
 	return (false);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strNOTtrim.c                                    :+:      :+:    :+:   */
+/*   ft_str_not_trim.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:33 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/07/23 15:59:25 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/09/09 02:52:01 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param set a set of chrs not to trim & stop trimming at
  * @return a trimmed version of s1
  */
-char	*ft_strNOTtrim(char const *s1, char const *set)
+char	*ft_str_not_trim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	start;
