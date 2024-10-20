@@ -3,95 +3,63 @@ NAME:=		libft.a
 
 # Folders
 BUILD:=		./build
-SOURCE:=	./src
+SOURCE:=	.
 
 # Other variables:
 COMPILER:=	cc
 COMPFLAGS:=	#-Wall -Werror -Wextra -g -c
 
 # Source Files:
-SRCFILES =	mem/ft_calloc.c \
-		mem/ft_free_2dstr.c \
-		mem/ft_bzero.c \
-		mem/ft_memset.c \
-		mem/ft_memcpy.c \
-		mem/ft_memccpy.c \
-		mem/ft_memmove.c \
-		mem/ft_memchr.c \
-		mem/ft_memcmp.c \
-		mem/ft_char_rep.c \
-		mem/memory.c \
-		string/ft_realloc.c \
+SRCFILES =	\
+		ft_calloc.c \
+		ft_bzero.c \
+		ft_memset.c \
+		ft_memcpy.c \
+		ft_memmove.c \
+		ft_memchr.c \
+		ft_memcmp.c \
 		\
-		check/ft_isalpha.c \
-		check/ft_isdigit.c \
-		check/ft_isalnum.c \
-		check/ft_isascii.c \
-		check/ft_isprint.c \
-		check/ft_isnumeric.c \
-		check/ft_isdouble.c \
-		check/ft_2d_array_size.c \
+		ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
 		\
-		convert/ft_atof.c \
-		convert/ft_atoi.c \
-		convert/ft_atoi_base.c \
-		convert/ft_itoa.c \
-		convert/ft_toupper.c \
-		convert/ft_tolower.c \
-		convert/ft_split.c \
-		convert/ft_limit.c \
+		ft_atoi.c \
+		ft_itoa.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_split.c \
 		\
-		string/ft_formatSpaces.c \
-		string/ft_str_sed.c \
-		string/ft_strlen.c \
-		string/ft_strlcpy.c \
-		string/ft_strlcat.c \
-		string/ft_strchr.c \
-		string/ft_strrchr.c \
-		string/ft_strnstr.c \
-		string/ft_strncmp.c \
-		string/ft_strdup.c \
-		string/ft_substr.c \
-		string/ft_strjoin.c \
-		string/ft_strtrim.c \
-		string/ft_str_not_trim.c \
-		string/ft_strmapi.c \
-		string/ft_striteri.c \
+		ft_strlen.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strnstr.c \
+		ft_strncmp.c \
+		ft_strdup.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_strmapi.c \
+		ft_striteri.c \
 		\
-		print/ft_color.c \
-		print/ft_color_basics.c \
-		print/ft_printfile.c \
-		print/ft_putchar_fd.c \
-		print/ft_putstr_fd.c \
-		print/ft_putendl_fd.c \
-		print/ft_putnbr_fd.c \
-		print/ft_putnbr_base_fd.c \
-		print/ft_printf.c \
-		print/ft_printf_fd.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 		\
-		lst/ft_lstnew.c \
-		lst/ft_lstadd_front.c \
-		lst/ft_lstsize.c \
-		lst/ft_lstlast.c \
-		lst/ft_lstfirst.c \
-		lst/ft_lstadd_back.c \
-		lst/ft_lstdelone.c \
-		lst/ft_lstclear.c \
-		lst/ft_lstiter.c \
-		lst/ft_lstmap.c \
-		\
-		gnl/get_next_line.c \
-		\
-		graph/ft_g_insert.c \
-		graph/ft_g_remove.c \
-		graph/ft_graph.c \
-		graph/ft_link.c \
-		\
-		vector/angle.c \
-		vector/normalise.c \
-		vector/resize.c \
-		vector/rotate.c \
-		vector/veclen.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstfirst.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
 
 
 
@@ -122,5 +90,9 @@ fclean: clean
 	$(RM) -r $(NAME)
 
 re: fclean all
+
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
 
 bonus: all
