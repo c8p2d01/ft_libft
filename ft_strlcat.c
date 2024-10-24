@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:08 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/20 03:11:22 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/20 04:37:19 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	d = ft_strlen(dst);
 	if (!dst && !src)
 		return (0);
-	if (d >= dstsize)
+	if (!dstsize || d >= dstsize)
 		return (s + dstsize);
 	while (src[i] && d + i < dstsize - 1)
 	{

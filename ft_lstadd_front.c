@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:51 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/20 03:11:14 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/20 03:46:19 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	i = NULL;
 	if (!new)
 		return ;
-	if (!(*lst))
+	if ((*lst))
 	{
-		*lst = new;
+		new->next = *lst;
 	}
-	else
-	{
-		i = ft_lstfirst((*lst));
-		i->prev = new;
-		new->next = i;
-	}
+	*lst = new;
 }
 
 // int main(int argc, char **argv)

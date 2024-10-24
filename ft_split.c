@@ -6,51 +6,45 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/20 03:11:20 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:02:10 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_strcount(char const *s, char c)
+void	free_2dstr(char **s)
 {
-	int		i;
-	int		count;
-	char	*str;
-	char	set[2];
+	int	i;
 
 	i = 0;
-	count = 1;
-	set[0] = c;
-	set[1] = 0;
-	str = ft_strtrim(s, set);
-	while (str && str[i])
+	while (s && s[i])
 	{
-		if (str[i] == c && str[i + 1] && str[i + 1] != c)
-			count ++;
-		i++;
+		free(s[i]);
+		i ++;
 	}
-	free (str);
-	return (count);
+	free(s);
 }
 
-static	int	ft_set_strcount(char const *s, char *set)
+// counts words in a string and returns
+static	int	ft_strcount(char const *s, char c, int *pos1, int *pos2)
 {
-	int		i;
-	int		count;
-	char	*str;
+	int	i;
+	int	count;
 
+	*pos1 = 0;
+	*pos2 = 0;
 	i = 0;
-	count = 1;
-	str = ft_strtrim(s, set);
-	while (str && str[i])
+	count = 0;
+	while (s[i])
 	{
-		if (ft_strchr(set, str[i]) && str[i + 1] && !ft_strchr(set, str[i + 1]))
-			count ++;
+		if (s[i] != c && !(count % 2))
+			count++;
+		if (s[i] == c && (count % 2))
+			count++;
 		i++;
 	}
-	free (str);
-	return (count);
+	count++;
+	return ((count / 2));
 }
 
 /**
@@ -65,79 +59,41 @@ static	int	ft_set_strcount(char const *s, char *set)
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	int		count;
-	int		pos1;
-	int		pos2;
+	int		count[2];
+	int		pos[2];
 
 	if (!s)
 		return (NULL);
-	count = 0;
-	pos1 = 0;
-	pos2 = 0;
-	array = ft_calloc((ft_strcount(s, c) + 1), sizeof(char *));
+	count[0] = 0;
+	count[1] = ft_strcount(s, c, &pos[0], &pos[1]);
+	array = ft_calloc(count[1] + 1, sizeof(char *));
 	if (!array)
-		return (0);
-	while (s[pos2])
+		return (NULL);
+	while (count[0] < count[1])
 	{
-		while (s[pos2] == c && s[pos2])
-			pos2++;
-		pos1 = pos2;
-		while (s[pos2] != c && s[pos2])
-			pos2++;
-		if (s[pos2 - 1] != c)
-			array[count] = ft_substr(s, pos1, pos2 - pos1);
-		count ++;
+		while (s[pos[1]] && s[pos[1]] == c)
+			pos[1]++;
+		pos[0] = pos[1];
+		while (s[pos[1]] && s[pos[1]] != c)
+			pos[1]++;
+		if (s[pos[1] - 1] != c)
+			array[count[0]] = ft_substr(s, pos[0], pos[1] - pos[0]);
+		if (!array[count[0]])
+			return (free_2dstr(array), NULL);
+		count[0]++;
 	}
 	return (array);
 }
 
-/**
- * Allocates ft_calloc and returns an array of strings obtained by
- * splitting ’s’ using the characters of ’set’ as a delimiter. The array must be
- * ended by a NULL pointer. Returns array of new strings resulting from the
- * split. NULL if the allocation fails.
- * @param s [char const *] char * to be split
- * @param set [char *] set of chars to be split by
- * @return [char **] split array
-*/
-char	**ft_set_split(char const *s, char *set)
-{
-	char	**array;
-	int		count;
-	int		pos1;
-	int		pos2;
-
-	if (!s)
-		return (NULL);
-	count = 0;
-	pos1 = 0;
-	pos2 = 0;
-	array = ft_calloc((ft_set_strcount(s, set) + 1), sizeof(char *));
-	if (!array)
-		return (0);
-	while (s[pos2])
-	{
-		while (ft_strchr(set, s[pos2]) && s[pos2])
-			pos2++;
-		pos1 = pos2;
-		while (!ft_strchr(set, s[pos2]) && s[pos2])
-			pos2++;
-		if (!ft_strchr(set, s[pos2 - 1]))
-			array[count] = ft_substr(s, pos1, pos2 - pos1);
-		count ++;
-	}
-	return (array);
-}
-
-// int main()
-// {
-// 	char input[] = "this is\ta string delimited\tby ... line too\tlong \t lal";
-// 	char **result;
-
-// 	result = ft_set_split(input, " \t");
-// 	printf("split input\t%s\n", input);
-// 	for(int i = 0; result[i]; i++)
+// int main(){
+// 	char *src = "             ";
+// 	printf("src\t%s\n", src);
+// 	char **s = ft_split(src, ' ');
+// 	for (int i = 0; i < 13 && s; i++)
 // 	{
-// 		printf("split element nr \t%i\t>%s<\n", i, result[i]);
+// 		printf("%d\t%s\n", i, s[i]);
+// 		if (s[i]) free(s[i]);
 // 	}
+// 	if (s) free(s);
+// 	else write(1, "Error\n", 6);
 // }

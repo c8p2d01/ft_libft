@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:13 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/20 03:11:16 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/20 03:43:05 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }

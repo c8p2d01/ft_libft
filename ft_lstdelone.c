@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/20 03:11:14 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/20 06:00:57 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_list	*n;
-	t_list	*p;
-
-	n = NULL;
-	p = NULL;
 	if (lst)
-	{
-		n = lst->next;
-		p = lst->prev;
-		if (n)
-			n->prev = p;
-		if (p)
-			p->next = n;
-	}
-	if (lst && del && lst->content)
-	{
-		del(lst->content);
-		lst->content = NULL;
-	}
-	if (lst)
-		free(lst);
-	lst = NULL;
+		(*del)(lst->content);
+	free(lst);
 }
 
 // int main()
