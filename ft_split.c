@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:56 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/10/24 18:02:10 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:11:41 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (array);
 }
-
-// int main(){
-// 	char *src = "             ";
-// 	printf("src\t%s\n", src);
-// 	char **s = ft_split(src, ' ');
-// 	for (int i = 0; i < 13 && s; i++)
-// 	{
-// 		printf("%d\t%s\n", i, s[i]);
-// 		if (s[i]) free(s[i]);
-// 	}
-// 	if (s) free(s);
-// 	else write(1, "Error\n", 6);
-// }
