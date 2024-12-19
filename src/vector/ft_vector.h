@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 02:33:58 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/09/09 02:35:25 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:27:12 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@
 #  define PI 3.14159265359
 # endif
 
-typedef struct s_vec2d {
+typedef struct s_vec2d
+{
 	double	x;
 	double	y;
 }	t_vec2d;
 
-typedef struct s_vec3d {
+typedef struct s_vec3d
+{
 	double	x;
 	double	y;
 	double	z;

@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/09/10 19:18:08 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:27:33 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,8 @@ int			ft_putnbr_base_fd(unsigned int num, char *base, int fd);
 	Color
 */
 
-typedef struct s_color {
+typedef struct s_color
+{
 	int8_t	r;
 	int8_t	g;
 	int8_t	b;

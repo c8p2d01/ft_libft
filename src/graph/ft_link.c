@@ -15,7 +15,7 @@
 /**
  * @brief Allocate new link
  */
-t_link	*ft_new_link(t_gnode *in, t_gnode *out)
+t_link	*ft_new_link(t_graph *in, t_graph *out, void *info)
 {
 	t_link	*res;
 
@@ -25,16 +25,37 @@ t_link	*ft_new_link(t_gnode *in, t_gnode *out)
 	*res = (t_link){
 		.from = in,
 		.to = out,
-		.capacity = 0,
-		.active = true
+		.info = info
 	};
 	return (res);
 }
 
 /**
- * @brief Check if gnode a is linked to gnode b
+ * @brief link one node to another
  */
-bool	ft_is_link(t_link *link, t_gnode *a, t_gnode *b)
+void	ft_link_nodes(t_graph *node, t_graph *next, \
+										void *(*info)(t_graph *, t_graph *))
+{
+	t_list	*new_link;
+	t_list	*check_link;
+
+	check_link = node->links;
+	while (check_link)
+	{
+		if (ft_is_link(check_link->content, node, next))
+			return ;
+		check_link = check_link->next;
+	}
+	new_link = ft_lstnew(ft_new_link(node, next, info(node, next)));
+	ft_lstadd_back(&(node->links), new_link);
+	ft_lstadd_back(&(next->links), new_link);
+	return ;
+}
+
+/**
+ * @brief Check if graph a is linked to graph b
+ */
+bool	ft_is_link(t_link *link, t_graph *a, t_graph *b)
 {
 	if (link->from == a && link->to == b)
 		return (true);
@@ -44,48 +65,9 @@ bool	ft_is_link(t_link *link, t_gnode *a, t_gnode *b)
 }
 
 /**
- * @brief return the capacity vlaue of the link (negative if towards node)
- * @param link, t_link * ::	the link that holds the capacity
- * @param mode, t_gnode *	::	the gnode the capacity starts from
- * @return int			::	the capacity towards the connected node
- */
-int	ft_g_capacity(t_link *link, t_gnode *node)
-{
-	if (!link || !node || !link->from || !link->to)
-		return (FLOW_ERROR);
-	if (link->from == node)
-		return (link->capacity);
-	if (link->to == node)
-		return (-(link->capacity));
-	return (FLOW_ERROR);
-}
-
-/**
- * @brief check if node a has an active link to node b
- * @param a; t_gnode *
- * @param b; t_gnode *
- */
-bool	ft_has_link(t_gnode *a, t_gnode *b)
-{
-	t_list	*current_link;
-
-	if (!a || !b)
-		return (false);
-	current_link = a->links;
-	while (current_link)
-	{
-		if (((t_link *)(current_link->content))->active &&
-								ft_is_link(current_link->content, a, b))
-			return (true);
-		current_link = current_link->next;
-	}
-	return (false);
-}
-
-/**
  * @brief returns the node being linked to
  */
-t_gnode	*ft_otherside(t_link *link, t_gnode *myside)
+t_graph	*ft_otherside(t_link *link, t_graph *myside)
 {
 	if (!link || !myside)
 		return (NULL);
@@ -94,4 +76,25 @@ t_gnode	*ft_otherside(t_link *link, t_gnode *myside)
 	if (link->to == myside)
 		return (link->from);
 	return (NULL);
+}
+
+/**
+ * @brief check if node a has an active link to node b
+ * @param a; t_graph *
+ * @param b; t_graph *
+ */
+bool	ft_has_link(t_graph *a, t_graph *b)
+{
+	t_list	*current_link;
+
+	if (!a || !b)
+		return (false);
+	current_link = a->links;
+	while (current_link)
+	{
+		if (ft_is_link(current_link->content, a, b))
+			return (true);
+		current_link = current_link->next;
+	}
+	return (false);
 }
