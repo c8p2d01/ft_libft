@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 19:08:04 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/12/19 21:24:23 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:48:17 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_unlink(t_graph *node, t_graph *next)
 			if (link)
 			{
 				ft_lstdelone(rmv_node, NULL);
-				ft_g_unlink(next, node);
+				ft_unlink(next, node);
 			}
 			if (link)
 				free(link);
@@ -76,7 +76,7 @@ void	ft_cut_graph(t_graph *node, void (*del)(void*))
 	{
 		next_link = current_link->next;
 		actual_link = current_link->content;
-		ft_g_unlink(actual_link->from, actual_link->to);
+		ft_unlink(actual_link->from, actual_link->to);
 		current_link = next_link;
 	}
 	if (node->links)
