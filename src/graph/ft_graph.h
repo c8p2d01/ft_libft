@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:07 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/12/19 21:28:24 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/01/07 03:04:56 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_link_nodes(t_graph *node, t_graph *next, \
 
 bool	ft_is_link(t_link *link, t_graph *a, t_graph *b);
 
-bool	ft_has_link(t_graph *a, t_graph *b);
+t_link	*ft_has_link(t_graph *a, t_graph *b);
 
 void	ft_unlink(t_graph *node, t_graph *next);
 

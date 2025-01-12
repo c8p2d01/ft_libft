@@ -79,22 +79,22 @@ t_graph	*ft_otherside(t_link *link, t_graph *myside)
 }
 
 /**
- * @brief check if node a has an active link to node b
+ * @brief check if node a has a to node b and return it
  * @param a; t_graph *
  * @param b; t_graph *
  */
-bool	ft_has_link(t_graph *a, t_graph *b)
+t_link	*ft_has_link(t_graph *a, t_graph *b)
 {
 	t_list	*current_link;
 
 	if (!a || !b)
-		return (false);
+		return (NULL);
 	current_link = a->links;
 	while (current_link)
 	{
 		if (ft_is_link(current_link->content, a, b))
-			return (true);
+			return (current_link->content);
 		current_link = current_link->next;
 	}
-	return (false);
+	return (NULL);
 }
