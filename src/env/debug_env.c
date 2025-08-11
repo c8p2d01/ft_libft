@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
+/*   debug_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 14:23:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/12/19 23:20:45 by cdahlhof         ###   ########.fr       */
+/*   Created: 2025/08/09 23:34:30 by cdahlhof          #+#    #+#             */
+/*   Updated: 2025/08/10 03:23:06 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int	ft_putnbr_base_fd(unsigned int num, char *base, int fd)
+void	print_env(void)
 {
-	int	i;
+	t_list	*env;
 
-	i = 1;
-	if (num >= ft_strlen(base))
-		i += ft_putnbr_base_fd(num / ft_strlen(base), base, fd);
-	write(fd, &(base[(num % ft_strlen(base))]), 1);
-	return (i);
+	env = *persist_env();
+	while (env)
+	{
+		ft_printf("stored env\t%s=%s\n", ((t_env_line *)env->content)->key, \
+								((t_env_line *)env->content)->value);
+		env = env->next;
+	}
 }

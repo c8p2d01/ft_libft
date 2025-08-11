@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:46:18 by cdahlhof          #+#    #+#             */
-/*   Updated: 2024/09/10 18:47:54 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/08/11 04:16:51 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,23 @@ void	ft_free(void *del_block)
 
 void	ft_clean_allocs(void)
 {
-	ft_lstclear(memory(), free);
+	t_list	*l;
+	t_list	*t;
+
+	l = *memory();
+	while (l)
+	{
+		t = l->next;
+		if (l->content)
+		{
+			ft_free(l->content);
+			l->content = NULL;
+		}
+		l->next = NULL;
+		l->prev = NULL;
+		free(l);
+		l = t;
+	}
 }
 
 // void	print_garb()

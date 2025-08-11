@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/01/12 13:44:50 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/08/10 03:43:21 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <sys/types.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include "../src/gnl/get_next_line.h"
 # include "../src/lst/ft_list.h"
 # include "../src/graph/ft_graph.h"
 # include "../src/vector/ft_vector.h"
+# include "../src/print/ft_printf/ft_printf.h"
 
 /*
 	Memory mainpulation
@@ -74,6 +76,7 @@ char		**ft_set_split(char const *s, char *set);
 void		i_limit(int *num, int low, int high);
 void		f_limit(float *num, float low, float high);
 void		lf_limit(double *num, double low, double high);
+int			ft_log(unsigned long num, int base);
 
 /*
 	String mainpulation
@@ -141,5 +144,21 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*
+	Environment
+*/
+
+typedef struct s_env_line{
+	char	*key;
+	char	*value;
+}	t_env_line;
+
+t_list		**persist_env(void);
+void		setup_env(char **p_env);
+void		print_env(void);
+void		del_env_line(void *p_content);
+void		clear_env(void);
+char		*get_value(char *key);
 
 #endif

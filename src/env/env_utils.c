@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 17:42:13 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/09 23:46:39 by cdahlhof         ###   ########.fr       */
+/*   Created: 2025/08/09 23:53:31 by cdahlhof          #+#    #+#             */
+/*   Updated: 2025/08/10 03:23:35 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-//lstnew cannot use ft_malloc because ft_malloc uses ft_lstnew
-t_list	*ft_lstnew(void *content)
+char	*get_value(char *key)
 {
-	t_list	*new;
+	t_list		*env;
+	t_env_line	*line;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	env = *persist_env();
+	while (env)
+	{
+		line = (t_env_line *)env->content;
+		if (ft_strncmp(key, line->key, ft_strlen(line->key)) == 0)
+			return (line->value);
+		env = env->next;
+	}
+	return (NULL);
 }
