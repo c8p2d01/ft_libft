@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:45 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/02 15:14:54 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/08/10 03:43:08 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ static int	ft_digits(int n)
 	{
 		digits++;
 		n = n / 10;
+	}
+	return (digits);
+}
+
+int	ft_log(unsigned long num, int base)
+{
+	int	digits;
+
+	digits = 0;
+	if (num <= 0)
+		digits++;
+	while (num)
+	{
+		digits++;
+		num = num / base;
 	}
 	return (digits);
 }

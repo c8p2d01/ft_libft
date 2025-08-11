@@ -23,6 +23,10 @@ SRCFILES =	mem/ft_calloc.c \
 		mem/memory.c \
 		string/ft_realloc.c \
 		\
+		env/setup_env.c \
+		env/debug_env.c \
+		env/env_utils.c \
+		\
 		check/ft_isalpha.c \
 		check/ft_isdigit.c \
 		check/ft_isalnum.c \
@@ -65,9 +69,18 @@ SRCFILES =	mem/ft_calloc.c \
 		print/ft_putstr_fd.c \
 		print/ft_putendl_fd.c \
 		print/ft_putnbr_fd.c \
-		print/ft_putnbr_base_fd.c \
+		print/ft_putnbr_base.c \
+		\
+		print/ft_printf/flag_handling.c \
+		print/ft_printf/flag_reading.c \
+		print/ft_printf/handlers_1.c \
+		print/ft_printf/handlers_2.c \
+		print/ft_printf/handlers_3.c \
+		print/ft_printf/padding.c \
+		print/ft_printf/print_utils.c \
+		print/ft_printf/storage.c \
+		print/ft_printf/debug.c \
 		print/ft_printf.c \
-		print/ft_printf_fd.c \
 		\
 		lst/ft_lstnew.c \
 		lst/ft_lstadd_front.c \

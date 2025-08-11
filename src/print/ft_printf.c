@@ -3,81 +3,84 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:47:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/23 15:18:19 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/08/11 04:29:54 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-static int	prointer(unsigned int p)
+int	sprint(va_list a)
 {
-	write(1, "0x", 2);
-	return (ft_putnbr_base_fd(p, \
-		"0123456789abcdef", 1) + 2);
-}
+	t_p_vars	*p_vars;
+	int			i;
 
-int	out_spread(char n, va_list ap)
-{
-	char	*s;
-
-	if (n == 'c')
+	p_vars = *query();
+	i = 0;
+	while (p_vars->format[i])
 	{
-		n = (char)va_arg(ap, int);
-		return (write(1, &n, 1));
-	}
-	else if (n == 'x')
-		return (ft_putnbr_base_fd(va_arg(ap, int), "0123456789abcdef", 1));
-	else if (n == 'i' || n == 'd')
-		return (ft_putnbr_base_fd(va_arg(ap, int), "0123456789", 1));
-	else if (n == 'p')
-		return (prointer((unsigned long)va_arg(ap, void *)));
-	else if (n == 's')
-	{
-		s = va_arg(ap, char *);
-		return (write(1, s, ft_strlen(s)));
-	}
-	else if (n == 'u')
-		return (ft_putnbr_base_fd(va_arg(ap, unsigned int), "0123456789", 1));
-	else if (n == '%')
-		return (write(1, "%", 1));
-	else if (n == 'X')
-		return (ft_putnbr_base_fd(va_arg(ap, int), "0123456789ABCDEF", 1));
-	return (-2147483648);
-}
-
-// 0 -> normal
-// 1 -> char
-// 2 -> hexa
-// 3 -> integer & decimal
-// 4 -> pointer
-// 5 -> string
-// 6 -> unsigned integer
-// 7 -> %
-// 8 -> Big Hexa
-int	ft_printf(const char *str, ...)
-{
-	va_list	ap;
-	int		i;
-	int		total;
-
-	i = -1;
-	total = 0;
-	va_start(ap, str);
-	while (str[++i])
-	{
-		if (str[i] != '%')
+		p_vars = *query();
+		if (p_vars->format[i] != '%')
 		{
-			total += write(1, str + i, 1);
-			continue ;
+			if (ft_printchar(p_vars->format[i]) != 1)
+				return (1);
 		}
 		else
 		{
-			i++;
-			total += out_spread(str[i], ap);
+			p_vars->i = i + 1;
+			if (trigger_insert(a))
+				return (1);
+			p_vars = *query();
+			i += p_vars->skipped;
 		}
+		i++;
 	}
-	return (total);
+	return (i);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	t_p_vars	*p_vars;
+	va_list		a;
+
+	if (ft_init(format))
+		return (0);
+	va_start(a, format);
+	p_vars = *query();
+	if (!sprint(a))
+		return (ft_close(p_vars->written));
+	va_end(a);
+	ft_close(p_vars->written);
+	return (p_vars->written);
+}
+
+int	ft_printf_fd(int fd, const char *format, ...)
+{
+	t_p_vars	*p_vars;
+	va_list		a;
+
+	if (ft_init(format))
+		return (0);
+	p_vars = *query();
+	p_vars->fd = fd;
+	va_start(a, format);
+	if (!sprint(a))
+		return (ft_close(p_vars->written));
+	va_end(a);
+	return (ft_close(p_vars->written));
+}
+
+int	ft_vfprintf(FILE *f, const char *format, va_list a)
+{
+	t_p_vars	*p_vars;
+
+	if (ft_init(format))
+		return (0);
+	p_vars = *query();
+	p_vars->debug = true;
+	p_vars->f = f;
+	sprint(a);
+	return (ft_close(p_vars->written));
 }
