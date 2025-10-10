@@ -39,6 +39,7 @@ SRCFILES =	mem/ft_calloc.c \
 		convert/ft_atof.c \
 		convert/ft_atoi.c \
 		convert/ft_atoi_base.c \
+		convert/ft_atol.c \
 		convert/ft_itoa.c \
 		convert/ft_toupper.c \
 		convert/ft_tolower.c \
@@ -92,6 +93,7 @@ SRCFILES =	mem/ft_calloc.c \
 		lst/ft_lstclear.c \
 		lst/ft_lstiter.c \
 		lst/ft_lstmap.c \
+		lst/ft_lstfind.c \
 		\
 		gnl/get_next_line.c \
 		\

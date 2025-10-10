@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:43:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/10 03:43:21 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:30:04 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int			ft_2d_array_size(void **arr);
 double		ft_atof(char *str);
 int			ft_atoi(const char *nptr);
 int			ft_atoi_base(const char *numberStr, const char *base);
+long		ft_atol(const char *nptr);
 char		*ft_itoa(int n);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
