@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 02:33:58 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/10/16 13:53:09 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:27:12 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,5 @@ t_vec2d	rotate2d(t_vec2d *vector, double degree);
 
 double	angle2d(t_vec2d a, t_vec2d b);
 double	angle3d(t_vec3d a, t_vec3d b);
-
-t_vec3d	sum3d(t_vec3d a, t_vec3d b);
-t_vec2d	sum2d(t_vec2d a, t_vec2d b);
-void	addto3d(t_vec3d *a, t_vec3d b);
-void	addto2d(t_vec2d *a, t_vec2d b);
-
-t_vec3d	cross3d(t_vec3d a, t_vec3d b);
-
-double	dot_2d(t_vec2d a, t_vec2d b);
-double	dot_3d(t_vec3d a, t_vec3d b);
-
-t_vec3d	product3d(t_vec3d a, double m);
-t_vec2d	product2d(t_vec2d a, double m);
-
-t_vec3d	new_vec3d(double x, double y, double z);
-t_vec2d	new_vec2d(double x, double y);
-
-t_vec3d	connect3d(t_vec3d a, t_vec3d b);
-t_vec2d	connect2d(t_vec2d a, t_vec2d b);
 
 #endif
