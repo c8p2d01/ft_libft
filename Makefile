@@ -93,19 +93,24 @@ SRCFILES =	mem/ft_calloc.c \
 		lst/ft_lstclear.c \
 		lst/ft_lstiter.c \
 		lst/ft_lstmap.c \
-		lst/ft_lstfind.c \
 		\
 		gnl/get_next_line.c \
 		\
 		graph/ft_graph.c \
 		graph/ft_link.c \
 		\
+		vector/addition.c \
 		vector/angle.c \
+		vector/cross_product.c \
+		vector/dot_product.c \
+		vector/ft_vector.h \
+		vector/multiplication.c \
+		vector/new_vec.c \
 		vector/normalise.c \
 		vector/resize.c \
 		vector/rotate.c \
+		vector/subtraction.c \
 		vector/veclen.c \
-
 
 
 # Process Variables
