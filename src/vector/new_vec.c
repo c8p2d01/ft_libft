@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   new_vec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 17:42:13 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/10/10 19:07:01 by cdahlhof         ###   ########.fr       */
+/*   Created: 2024/09/09 02:32:35 by cdahlhof          #+#    #+#             */
+/*   Updated: 2025/10/16 08:25:30 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "ft_vector.h"
 
-//lstnew cannot use ft_malloc because ft_malloc uses ft_lstnew
-t_list	*ft_lstnew(void *content)
+t_vec3d	new_vec3d(double x, double y, double z)
 {
-	t_list	*new;
+	t_vec3d res = (t_vec3d){
+		.x = x,
+		.y = y,
+		.z = z
+	};
+	return (res);
+}
 
-	new = ft_malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+t_vec2d	new_vec2d(double x, double y)
+{
+	t_vec2d res = (t_vec2d){
+		.x = x,
+		.y = y
+	};
+	return (res);
 }

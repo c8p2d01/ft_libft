@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:46:18 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/11 04:16:51 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:57:42 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ t_list	**memory(void)
 	return (&mem);
 }
 
+t_list	*ft_memnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
 void	*ft_malloc(size_t size)
 {
 	t_list	*mem;
@@ -29,7 +42,7 @@ void	*ft_malloc(size_t size)
 	if (!content)
 		exit(1);
 	ft_bzero(content, size);
-	new = ft_lstnew(content);
+	new = ft_memnew(content);
 	mem = *memory();
 	if (mem != NULL)
 		ft_lstadd_back(&mem, new);
@@ -56,14 +69,13 @@ void	ft_free(void *del_block)
 		while (p_list)
 		{
 			if (p_list->content && p_list->content == del_block)
-			{
 				break ;
-			}
 			p_list = (p_list)->next;
 		}
 	}
 	ft_lstdelone(p_list, NULL);
-	free(del_block);
+	if (del_block)
+		free(del_block);
 	del_block = NULL;
 }
 
@@ -79,13 +91,12 @@ void	ft_clean_allocs(void)
 		if (l->content)
 		{
 			ft_free(l->content);
-			l->content = NULL;
 		}
-		l->next = NULL;
-		l->prev = NULL;
-		free(l);
 		l = t;
 	}
+	l = *memory();
+	ft_lstclear(&l, free);
+	*memory() = NULL;
 }
 
 // void	print_garb()

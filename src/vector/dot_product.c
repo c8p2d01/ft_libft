@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   dot_product.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 17:42:13 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/10/10 19:07:01 by cdahlhof         ###   ########.fr       */
+/*   Created: 2024/09/09 02:32:35 by cdahlhof          #+#    #+#             */
+/*   Updated: 2025/10/16 08:25:16 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "ft_vector.h"
 
-//lstnew cannot use ft_malloc because ft_malloc uses ft_lstnew
-t_list	*ft_lstnew(void *content)
+double	dot_2d(t_vec2d a, t_vec2d b)
 {
-	t_list	*new;
+	return ((a.x * b.x) + (a.y * b.y));
+}
 
-	new = ft_malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+double	dot_3d(t_vec3d a, t_vec3d b)
+{
+	return ((a.x * b.x) + (a.y * b.y) + (a.z * b.z));
 }

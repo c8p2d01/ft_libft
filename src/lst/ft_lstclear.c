@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:41:53 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/11 04:12:33 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:32:10 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	{
 		if ((*lst)->next)
 			ft_lstclear(&(*lst)->next, del);
+		(*lst)->next = NULL;
 		ft_lstdelone(*lst, del);
 		*lst = NULL;
 	}

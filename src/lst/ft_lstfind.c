@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstfind.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 17:42:13 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/10/10 19:07:01 by cdahlhof         ###   ########.fr       */
+/*   Created: 2022/05/10 17:41:56 by cdahlhof          #+#    #+#             */
+/*   Updated: 2025/10/10 13:25:19 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-//lstnew cannot use ft_malloc because ft_malloc uses ft_lstnew
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstfind(t_list *lst, void *target, bool eq(void*, void*))
 {
-	t_list	*new;
+	while (lst)
+	{
+		if (eq(lst->content, target))
+			return (lst);
+		lst = lst->next;
+	}
+	return (NULL);
+}
 
-	new = ft_malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+int	ft_lstlocate(t_list *lst, void *target, bool eq(void*, void*))
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		if (eq(lst->content, target))
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (-1);
 }
