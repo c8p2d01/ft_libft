@@ -127,9 +127,10 @@ typedef struct s_color
 
 t_color		new_color(int r, int g, int b);
 int			create_rgb(int r, int g, int b);
-int			print_color_from_hex(char *color);
 long		create_gradient_color(float fraction, t_color a, t_color b);
 long		create_multi_gradient(float fraction, int nColor, ...);
+int			terminal_rgb(char r, char b, char g, bool background);
+void		color_range(int num, int low, int high, char c);
 
 /*
 	List

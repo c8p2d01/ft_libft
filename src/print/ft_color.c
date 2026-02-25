@@ -12,27 +12,6 @@
 
 #include "../../inc/libft.h"
 
-// color codes in rainbow sequence (len=30) for \e[38;5;%im{...}
-int	colorflow(int i)
-{
-	int	m;
-
-	m = i % 30;
-	if (m < 6)
-		return (21 + (m * 36));
-	if (m < 11)
-		return (200 - (m - 6));
-	if (m < 16)
-		return (202 + ((m - 11) * 6));
-	if (m < 21)
-		return (190 - ((m - 16) * 36));
-	if (m < 26)
-		return (47 + (m - 21));
-	if (m < 31)
-		return (45 - ((m - 26) * 6));
-	return (0);
-}
-
 long	create_gradient_color(float fraction, t_color a, t_color b)
 {
 	int	red;
@@ -40,9 +19,9 @@ long	create_gradient_color(float fraction, t_color a, t_color b)
 	int	blue;
 
 	fraction -= (int)fraction;
-	red = a.r + fraction * (b.r - a.r);
-	green = a.g + fraction * (b.g - a.g);
-	blue = a.b + fraction * (b.b - a.b);
+	red = a.r + fraction * ((b.r - a.r) % 256);
+	green = a.g + fraction * ((b.g - a.g) % 256);
+	blue = a.b + fraction * ((b.b - a.b) % 256);
 	return (0 << 24 | (unsigned char)red << 16 | (unsigned char)green << 8 \
 													| (unsigned char)blue);
 }
@@ -64,7 +43,6 @@ long	create_multi_gradient(float fraction, int nColor, ...)
 	start_gradient = (int)(fraction * (float)nColor);
 	skip = 0;
 	fraction -= (int)fraction;
-	--nColor;
 	va_start(col, nColor);
 	while (skip < start_gradient * 3)
 	{
@@ -77,32 +55,21 @@ long	create_multi_gradient(float fraction, int nColor, ...)
 	return (create_gradient_color(fraction, start, next));
 }
 
-/**
- * @param color => ("rrbbgg")
-*/
-int	terminal_rgb(char *color)
+int	terminal_rgb(char r, char b, char g, bool background)
 {
-	char			*color_snippet;
-	unsigned char	rgb[3];
-	int				i;
+	return (printf("\e[I%i;%i;%i;%im", background ? 48 : 38, r, g, b));
+}
 
-	if (color[0] == '#')
-		color++;
-	i = 0;
-	while (i < 3)
-	{
-		rgb[i] = 0;
-		color_snippet = ft_substr(color, i * 2, 2);
-		if (ft_strlen(color_snippet))
-		{
-			printf("\t\t%s\n", color_snippet);
-			ft_tolower(color_snippet[0]);
-			ft_tolower(color_snippet[1]);
-			rgb[i] = ft_atoi_base(color_snippet, "0123456789abcdef");
-		}
-		free (color_snippet);
-		i++;
-	}
-	printf("\e[48;%i;%i;%im", rgb[0], rgb[1], rgb[2]);
-	return (0);
+/**
+ * print the color code that represents the color at the position num, over the range of low -> high which gors through the outer rgb rainbow
+ * if c is not space, then the characters will be colored, otherwise the background will be colored
+ */
+void	color_range(int num, int low, int high, char c)
+{
+	int div = high - low;
+	float	frac = (float)num / (float)div;
+	if (frac < 0)
+		frac += 1;
+	long color = create_multi_gradient(frac, 6, 255,0,0, 255,255,0, 0,255,0, 0,255,255, 0,0,255, 255,0,255);
+	printf("\e[%i;2;%li;%li;%lim%c", (c == ' ' ? 48 : 38), (color>>16)%256, (color>>8)%256, (color)%256, c);
 }
