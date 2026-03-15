@@ -22,6 +22,19 @@ int	ft_printchar(char c)
 		if (fwrite(&c, 1, 1, p_vars->f) != 1)
 			return (0);
 	}
+	else if(p_vars->as)
+	{
+		if (p_vars->as_remaining <= 0)
+		{
+			p_vars->as_remaining = 1024;
+			p_vars->as = ft_realloc(p_vars->as, ft_strlen(p_vars->as), 1024);
+			if (!p_vars->as)
+				return (0);
+		}
+		p_vars->as[p_vars->as_written] = c;
+		p_vars->as_written++;
+		p_vars->as_remaining--;
+	}
 	else if (p_vars->fd > 0)
 	{
 		if (write(p_vars->fd, &c, 1))

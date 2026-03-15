@@ -58,6 +58,9 @@ typedef struct s_p_vars
 	bool	debug;
 	FILE	*f;
 	int		fd;
+	char	*as;
+	int		as_remaining;
+	int		as_written;
 }	t_p_vars;
 
 t_p_vars	**query(void);
@@ -100,6 +103,7 @@ int			sprint(va_list a);
 
 int			ft_printf(const char *format, ...);
 int			ft_vfprintf(FILE *f, const char *format, va_list a);
+char		*ft_asprintf(const char *format, ...);
 void		compare(char *fmt, ...);
 
 #endif

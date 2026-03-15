@@ -85,6 +85,9 @@ int	ft_init(const char *format)
 		p_vars->debug = false;
 		p_vars->f = NULL;
 		p_vars->fd = 0;
+		p_vars->as = NULL;
+		p_vars->as_remaining = 0;
+		p_vars->as_written = 0;
 	}
 	else
 		return (1);

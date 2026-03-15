@@ -84,3 +84,24 @@ int	ft_vfprintf(FILE *f, const char *format, va_list a)
 	sprint(a);
 	return (ft_close(p_vars->written));
 }
+
+char *ft_asprintf(const char *format, ...)
+{
+	t_p_vars	*p_vars;
+	va_list		a;
+	char		*result;
+
+	if (ft_init(format))
+		return (0);
+	p_vars = *query();
+	p_vars->as = ft_calloc(1, 1);
+	va_start(a, format);
+	if (!sprint(a))
+		return (ft_close(p_vars->written), NULL);
+	result = ft_malloc(p_vars->as_written + 1);
+	if (!result)
+		return (ft_close(p_vars->written), NULL);
+	ft_strlcpy(result, p_vars->as, p_vars->as_written + 1);
+	va_end(a);
+	return (ft_close(p_vars->written), result);
+}
