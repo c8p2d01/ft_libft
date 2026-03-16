@@ -103,7 +103,6 @@ SRCFILES =	mem/ft_calloc.c \
 		vector/angle.c \
 		vector/cross_product.c \
 		vector/dot_product.c \
-		vector/ft_vector.h \
 		vector/multiplication.c \
 		vector/new_vec.c \
 		vector/normalise.c \
