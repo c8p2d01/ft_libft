@@ -61,6 +61,7 @@ SRCFILES =	mem/ft_calloc.c \
 		string/ft_strtrim.c \
 		string/ft_str_not_trim.c \
 		string/ft_strmapi.c \
+		string/ft_strmerge.c \
 		string/ft_striteri.c \
 		\
 		print/ft_color.c \
