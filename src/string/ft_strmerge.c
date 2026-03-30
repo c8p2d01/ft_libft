@@ -6,7 +6,7 @@
 /*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:42:52 by cdahlhof          #+#    #+#             */
-/*   Updated: 2026/03/30 13:31:29 by cdahlhof         ###   ########.fr       */
+/*   Updated: 2026/03/30 13:38:10 by cdahlhof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@ char	*ft_strmerge(char *s1, char *s2)
 	if (!concat)
 		return(NULL);
 	i = 0;
-	while (i++ < l1)
+	while (i < l1)
+	{
 		concat[i] = s1[i];
-	while (i++ < l1 + l2)
+		i++;
+	}
+	while (i < l1 + l2)
+	{
 		concat[i] = s2[i - l1];
+		i++;
+	}
 	concat[i] = '\0';
 	ft_free(s1);
 	ft_free(s2);
