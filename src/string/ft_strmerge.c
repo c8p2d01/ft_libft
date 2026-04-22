@@ -45,7 +45,7 @@ char	*ft_strmerge(char *s1, char *s2)
 	return (concat);
 }
 
-char	*ft_strsmerge(int n, ...)
+char	*ft_strsmerge(size_t n, ...)
 {
 	va_list	s;
 	size_t	i;
