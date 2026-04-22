@@ -44,3 +44,39 @@ char	*ft_strmerge(char *s1, char *s2)
 	ft_free(s2);
 	return (concat);
 }
+
+char	*ft_strsmerge(int n, ...)
+{
+	va_list	s;
+	size_t	i;
+	size_t	in;
+	char	*res;
+	char	*tmp;
+
+	i = 0;
+	in = 0;
+	va_start(s, n);
+	while (in++ < n)
+		i += ft_strlen(va_arg(s, char *));
+	va_end(s);
+	res = ft_calloc(i + 1, sizeof(char));
+	va_start(s, n);
+	in = 0;
+	while (in++ < n)
+	{
+		tmp = va_arg(s, char *);
+		if (!tmp)
+			continue ;
+		ft_strlcat(&res[ft_strlen(res)], tmp, ft_strlen(tmp) + 1);
+	}
+	return (res);
+}
+
+// int main(){
+// 	char *a = "hell";
+// 	char *b = "o wor";
+// 	char *c = NULL;
+
+// 	char *m = ft_strsmerge(3, a, b, c);
+// 	printf("%s\n", m);
+// }

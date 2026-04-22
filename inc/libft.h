@@ -100,7 +100,8 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 void		ft_formatSpaces(char *s);
 void		str_sed(char **base, char *ind, char *add);
-char	*	ft_strmerge(char *s1, char *s2);
+char		*ft_strmerge(char *s1, char *s2);
+char		*ft_strsmerge(int n, ...);
 
 /*
 	Printing
