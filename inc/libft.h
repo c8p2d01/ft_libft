@@ -22,7 +22,6 @@
 # include <stdbool.h>
 # include "../src/gnl/get_next_line.h"
 # include "../src/lst/ft_list.h"
-# include "../src/graph/ft_graph.h"
 # include "../src/vector/ft_vector.h"
 # include "../src/print/ft_printf/ft_printf.h"
 

@@ -97,9 +97,6 @@ SRCFILES =	mem/ft_calloc.c \
 		\
 		gnl/get_next_line.c \
 		\
-		graph/ft_graph.c \
-		graph/ft_link.c \
-		\
 		vector/addition.c \
 		vector/angle.c \
 		vector/cross_product.c \
