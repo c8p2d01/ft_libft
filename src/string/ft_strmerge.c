@@ -14,7 +14,7 @@
 
 /**
  * @brief	merge two stings given as parameters into a new one, 
- * 			freeing the given ones 
+ * 			ft_freeing the given ones 
  */
 char	*ft_strmerge(char *s1, char *s2)
 {

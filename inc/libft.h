@@ -90,6 +90,7 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strlcmp(const char *s1, const char *s2, size_t limit);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -128,8 +129,8 @@ typedef struct s_color
 
 t_color		new_color(int r, int g, int b);
 int			create_rgb(int r, int g, int b);
-long		create_gradient_color(float fraction, t_color a, t_color b);
-long		create_multi_gradient(float fraction, int nColor, ...);
+int			create_gradient_color(float fraction, t_color a, t_color b);
+int			create_multi_gradient(float fraction, int nColor, ...);
 int			terminal_rgb(char r, char b, char g, bool background);
 void		color_range(int num, int low, int high, char c);
 

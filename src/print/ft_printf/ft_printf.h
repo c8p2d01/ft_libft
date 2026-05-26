@@ -102,6 +102,7 @@ int			trigger_insert(va_list a);
 int			sprint(va_list a);
 
 int			ft_printf(const char *format, ...);
+int			ft_vprintf(const char *format, va_list a);
 int			ft_vfprintf(FILE *f, const char *format, va_list a);
 char		*ft_asprintf(const char *format, ...);
 void		compare(char *fmt, ...);

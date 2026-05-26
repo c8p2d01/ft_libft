@@ -1,70 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atof.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42wolfsburg.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 17:41:09 by cdahlhof          #+#    #+#             */
-/*   Updated: 2023/01/02 15:14:54 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../inc/libft.h"
 
-static double	ft_getbehind(char *str)
+static double	ft_getfraction(char *str)
 {
-	double	ret;
-	double	dez;
+	double	fraction;
+	double	divisor;
 
-	ret = 0;
-	dez = 10;
-	while (*str)
+	fraction = 0.0;
+	divisor = 1.0;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (!ft_isdigit(*str))
-			return (0);
-		ret += ((*str - 48) / dez);
-		dez *= 10;
+		fraction = fraction * 10.0 + (*str - '0');
+		divisor *= 10.0;
 		str++;
 	}
-	return (ret);
-}
-
-static double	ft_final(double front, double behind, char sgn)
-{
-	int		sign;
-
-	sign = 1;
-	if (front < 0 || sgn == '-')
-		sign = -1;
-	return (front + behind * sign);
+	return (fraction / divisor);
 }
 
 double	ft_atof(char *str)
 {
-	char	*front;
-	char	*behind;
-	size_t	len;
-	double	ret;
+	double	integer_part;
+	double	fraction_part;
+	double	sign;
 
-	len = ft_strlen(str);
-	front = malloc(sizeof(char) * len);
-	if (!len || !front)
-		return (0);
-	ret = 0;
-	behind = ft_strchr(str, '.');
-	if (!behind)
+	integer_part = 0.0;
+	fraction_part = 0.0;
+	sign = 1.0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		free(front);
-		return ((double)(ft_atoi(str)));
+		if (*str == '-')
+			sign = -1.0;
+		str++;
 	}
-	if (ft_strlen(behind) < len)
+	while (*str >= '0' && *str <= '9')
 	{
-		len -= ft_strlen(behind);
-		ft_strlcpy(front, str, len + 1);
+		integer_part = integer_part * 10.0 + (*str - '0');
+		str++;
 	}
-	behind++;
-	ret = ft_final(ft_atoi(front), ft_getbehind(behind), str[0]);
-	free(front);
-	return (ret);
+	if (*str == '.')
+		fraction_part = ft_getfraction(str + 1);
+	return (sign * (integer_part + fraction_part));
 }

@@ -30,7 +30,7 @@ static	int	ft_strcount(char const *s, char c)
 			count ++;
 		i++;
 	}
-	free (str);
+	ft_free (str);
 	return (count);
 }
 
@@ -49,7 +49,7 @@ static	int	ft_set_strcount(char const *s, char *set)
 			count ++;
 		i++;
 	}
-	free (str);
+	ft_free (str);
 	return (count);
 }
 

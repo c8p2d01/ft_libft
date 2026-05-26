@@ -20,7 +20,7 @@ void	printfile(int fd)
 	while (line)
 	{
 		printf("%s\n", line);
-		free (line);
+		ft_free (line);
 		line = get_next_line(fd);
 	}
 }

@@ -32,7 +32,7 @@ char	*get_next_line(int fd)
 		{
 			if (ft_strlen(line))
 				return (line);
-			return (free(line), NULL);
+			return (ft_free(line), NULL);
 		}
 	}
 	leftover = ft_strchr(line, '\n') + 1;
@@ -61,7 +61,7 @@ char	*get_until(int fd, char d)
 		{
 			if (ft_strlen(line))
 				return (line);
-			return (free(line), NULL);
+			return (ft_free(line), NULL);
 		}
 	}
 	leftover = ft_strchr(line, d) + 1;

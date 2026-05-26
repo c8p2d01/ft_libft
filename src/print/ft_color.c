@@ -12,7 +12,7 @@
 
 #include "../../inc/libft.h"
 
-long	create_gradient_color(float fraction, t_color a, t_color b)
+int	create_gradient_color(float fraction, t_color a, t_color b)
 {
 	int	red;
 	int	green;
@@ -32,7 +32,7 @@ long	create_gradient_color(float fraction, t_color a, t_color b)
  * @param fraction position in the color range
  * @param nColor number of triplet arguments defining the used colors, min 2
  */
-long	create_multi_gradient(float fraction, int nColor, ...)
+int	create_multi_gradient(float fraction, int nColor, ...)
 {
 	int		start_gradient;
 	t_color	start;

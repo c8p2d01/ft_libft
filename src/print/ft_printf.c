@@ -58,6 +58,22 @@ int	ft_printf(const char *format, ...)
 	return (ft_close(written_length));
 }
 
+int	ft_vprintf(const char *format, va_list a)
+{
+	t_p_vars	*p_vars;
+	int			process_return;
+	int			written_length;
+
+	if (ft_init(format))
+		return (0);
+	p_vars = *query();
+	process_return = sprint(a);
+	written_length = p_vars->written;
+	if (process_return)
+		va_end(a);
+	return (ft_close(written_length));
+}
+
 int	ft_printf_fd(int fd, const char *format, ...)
 {
 	t_p_vars	*p_vars;
