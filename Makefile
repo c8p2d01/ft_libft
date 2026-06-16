@@ -10,7 +10,12 @@ COMPILER:=	cc
 COMPFLAGS:=	-Wall -Werror -Wextra -g -c
 
 # Source Files:
-SRCFILES =	mem/ft_calloc.c \
+SRCFILES =	\
+		alloc/ft_calloc.c \
+		alloc/memory.c \
+		alloc/memory_pool.c \
+		alloc/ft_realloc.c \
+		\
 		mem/ft_free_2dstr.c \
 		mem/ft_bzero.c \
 		mem/ft_memset.c \
@@ -20,8 +25,6 @@ SRCFILES =	mem/ft_calloc.c \
 		mem/ft_memchr.c \
 		mem/ft_memcmp.c \
 		mem/ft_char_rep.c \
-		mem/memory.c \
-		string/ft_realloc.c \
 		\
 		env/setup_env.c \
 		env/debug_env.c \
@@ -100,6 +103,7 @@ SRCFILES =	mem/ft_calloc.c \
 		vector/addition.c \
 		vector/angle.c \
 		vector/cross_product.c \
+		vector/comparison.c \
 		vector/dot_product.c \
 		vector/multiplication.c \
 		vector/new_vec.c \

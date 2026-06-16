@@ -12,6 +12,26 @@
 
 #include "../../inc/libft.h"
 
+t_list	*ft_lst_extract(t_list **lst, t_list *node)
+{
+	t_list	temp;
+
+	if (!node)
+		return (NULL);
+
+	temp.next = node->next;
+	temp.prev = node->prev;
+	if (node->prev)
+		node->prev->next = temp.next;
+	if (node->next)
+		node->next->prev = temp.prev;
+	node->next = NULL;
+	node->prev = NULL;
+	if (lst && *lst == node)
+		*lst = node->next;
+	return (node);
+}
+
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	t_list	*n;
@@ -36,6 +56,26 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (lst)
 		ft_free(lst);
 	lst = NULL;
+}
+
+void	ft_list_del_last_n(t_list *lst, void (*del)(void*), size_t n_nodes)
+{
+	size_t	len;
+	t_list	*next;
+
+	len = ft_lstsize(lst);
+	while (lst && len - n_nodes > 0)
+	{
+		lst = lst->next;
+		len--;
+	}
+	while (lst && n_nodes > 0)
+	{
+		next = lst->next;
+		ft_lstdelone(lst, del);
+		lst = next;
+		n_nodes--;
+	}
 }
 
 // int main()

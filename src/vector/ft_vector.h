@@ -38,6 +38,9 @@ double	veclen_3d(double x, double y, double z);
 double	veclen2d(t_vec2d *vector);
 double	veclen3d(t_vec3d *vector);
 
+bool	equal2d(t_vec2d *a, t_vec2d *b, double precision);
+bool	equal3d(t_vec3d *a, t_vec3d *b, double precision);
+
 void	normalise(int dimension, ...);
 void	normalise_2d(double *x, double *y);
 void	normalise_3d(double *x, double *y, double *z);
