@@ -12,6 +12,12 @@
 
 #include "../../inc/libft.h"
 
+int	allocation_error(void)
+{
+	ft_clean_allocs();
+	exit(1);
+}
+
 t_list	**memory(void)
 {
 	static t_list	*mem;
@@ -38,9 +44,12 @@ void	*ft_malloc(size_t size)
 	t_list	*new;
 	void	*content;
 
+	content = ft_recycalloc(size);
+	if (content)
+		return (content);
 	content = malloc(size);
 	if (!content)
-		exit(1);
+		allocation_error();
 	ft_bzero(content, size);
 	new = ft_memnew(content);
 	mem = *memory();
@@ -57,13 +66,11 @@ void	ft_free(void *del_block)
 	t_list	*p_list;
 
 	mem_list = memory();
-	p_list = *mem_list;
+	p_list = *memory();
 	if (!del_block)
 		return ;
 	if (p_list && p_list->content && p_list->content == del_block)
-	{
 		*mem_list = p_list->next;
-	}
 	else
 	{
 		while (p_list)

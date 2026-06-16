@@ -20,6 +20,7 @@
 # include <sys/types.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include "../src/alloc/ft_mem.h"
 # include "../src/gnl/get_next_line.h"
 # include "../src/lst/ft_list.h"
 # include "../src/vector/ft_vector.h"
@@ -29,8 +30,6 @@
 	Memory mainpulation
 */
 
-void		*ft_calloc(size_t nmemb, size_t size);
-void		*ft_realloc(void *old, size_t old_len, size_t add_len);
 int			free_2dstr(char **s);
 void		unreach(void *freeMe);
 void		ft_bzero(void *s, size_t n);
@@ -41,11 +40,6 @@ void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		ft_char_rep(char *str, char target, char replacement);
-
-t_list		**memory(void);
-void		*ft_malloc(size_t size);
-void		ft_free(void *del_block);
-void		ft_clean_allocs(void);
 
 /*
 	Checks
