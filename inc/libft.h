@@ -109,6 +109,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 int			ft_putnbr_base_fd(unsigned int num, char *base, int fd);
+void		ft_putfloat_fd(int fd, float num, int decimals);
 
 /*
 	Color
