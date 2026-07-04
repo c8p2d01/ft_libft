@@ -3,7 +3,6 @@
 void	ft_putfloat_fd(int fd, float num, int decimals)
 {
 	long long	int_part;
-	long long	temp;
 	long long	divisor;
 	char		c;
 
