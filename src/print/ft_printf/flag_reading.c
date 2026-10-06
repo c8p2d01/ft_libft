@@ -39,7 +39,7 @@ void	read_numbers(void)
 		p_vars->precision = \
 						ft_atoi(&p_vars->format[p_vars->i + p_vars->len + 1]);
 		if (p_vars->precision != 0)
-			p_vars->add += ft_log(p_vars->precision, 10);
+			p_vars->add += ft_count_digit(p_vars->precision, 10);
 		if (p_vars->format[p_vars->i + p_vars->len + 1] == '0')
 			p_vars->add++;
 		p_vars->do_precision = true;
@@ -48,7 +48,7 @@ void	read_numbers(void)
 	{
 		p_vars->do_width = true;
 		p_vars->width = ft_atoi(&p_vars->format[p_vars->i + p_vars->len]);
-		p_vars->add = ft_log(p_vars->width, 10);
+		p_vars->add = ft_count_digit(p_vars->width, 10);
 	}
 }
 

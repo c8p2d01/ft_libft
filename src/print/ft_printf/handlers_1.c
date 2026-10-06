@@ -52,7 +52,7 @@ int	handle_d_i(va_list a)
 		num = -val;
 	}
 	p_vars->value_base = ft_strdup("0123456789");
-	p_vars->value_length = ft_log((unsigned int)num, 10);
+	p_vars->value_length = ft_count_digit((unsigned int)num, 10);
 	if (num && p_vars->value_length > p_vars->precision)
 		p_vars->precision = p_vars->value_length;
 	if (p_vars->do_precision)
@@ -70,7 +70,7 @@ int	handle_u(va_list a)
 	p_vars = *query();
 	num = va_arg(a, int);
 	p_vars->value_base = ft_strdup("0123456789");
-	p_vars->value_length = ft_log(num, 10);
+	p_vars->value_length = ft_count_digit(num, 10);
 	p_vars->width -= (p_vars->do_sign || p_vars->sign_positive);
 	if (num && p_vars->value_length > p_vars->precision)
 		p_vars->precision = p_vars->value_length;

@@ -71,6 +71,7 @@ void		i_limit(int *num, int low, int high);
 void		f_limit(float *num, float low, float high);
 void		lf_limit(double *num, double low, double high);
 int			ft_log(unsigned long num, int base);
+int			ft_count_digit(unsigned long num, int base);
 
 /*
 	String mainpulation

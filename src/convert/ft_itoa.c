@@ -27,7 +27,10 @@ static int	ft_digits(int n)
 	return (digits);
 }
 
-int	ft_log(unsigned long num, int base)
+/**
+ * @brief count the digits in num relative to the base
+*/
+int	ft_count_digit(unsigned long num, int base)
 {
 	int	digits;
 
@@ -40,6 +43,24 @@ int	ft_log(unsigned long num, int base)
 		num = num / base;
 	}
 	return (digits);
+}
+
+/**
+ * @brief calculate log of num in given base
+*/
+int	ft_log(unsigned long num, int base)
+{
+	int	log_val;
+
+	if (num == 0 || base < 2) 
+		return (-1);
+	log_val = 0;
+	while (num >= (unsigned long)base)
+	{
+		log_val++;
+		num = num / base;
+	}
+	return (log_val);
 }
 
 char	*ft_itoa(int n)
