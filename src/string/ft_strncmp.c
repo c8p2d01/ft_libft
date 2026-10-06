@@ -40,3 +40,16 @@ int	ft_strlcmp(const char *s1, const char *s2, size_t limit)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+/**
+ * @brief compares two strings
+ */
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1 && s2 && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

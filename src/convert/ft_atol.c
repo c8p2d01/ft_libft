@@ -36,3 +36,23 @@ long	ft_atol(const char *nptr)
 	}
 	return (num * sign);
 }
+
+#ifdef TEST
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	printf("i lay at %s\n", argv[0]);
+
+	{
+		char	*s = "42";
+		long	mine = ft_atol(s);
+		long	compare = atol(s);
+		if (mine == compare)
+			printf("[✓]\ttest: <%s>", s);
+		else
+			printf("[✘]\ttest: <%s>\n\tmine: <%li>\n\toriginal: <%li>\n", s, mine, compare);
+	}
+}
+
+#endif

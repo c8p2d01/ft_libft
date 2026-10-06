@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/10 17:41:04 by cdahlhof          #+#    #+#             */
+/*   Updated: 2024/04/04 17:53:05 by cdahlhof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_read.h"
+
+/**
+ * @brief retreive the next line of a file
+ * called consecutively to read out a file line by line
+ */
+char	*get_next_line(int fd)
+{
+	char	*line;
+	char	*buffer;
+	int		reed;
+	char	*leftover;
+
+	buffer = get_buffer(fd);
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
+		return (NULL);
+	line = ft_strdup(buffer);
+	ft_bzero(buffer, ft_strlen(line));
+	reed = BUFFER_SIZE;
+	while (!ft_strchr(line, '\n') && reed > 0)
+	{
+		line = ft_realloc(line, ft_strlen(line), BUFFER_SIZE + 1);
+		reed = read(fd, line + ft_strlen(line), BUFFER_SIZE);
+		if (reed <= 0)
+		{
+			if (ft_strlen(line))
+				return (line);
+			return (ft_free(line), NULL);
+		}
+	}
+	leftover = ft_strchr(line, '\n') + 1;
+	ft_memcpy(buffer, leftover, ft_strlen(leftover));
+	ft_bzero(leftover, ft_strlen(leftover));
+	return (line);
+}
+
+
+/**
+ * @brief retreive the next string delimited by character 'd' of a file
+ * called consecutively to read out a file
+ */
+char	*get_until(int fd, char d)
+{
+	char	*line;
+	char	*buffer;
+	int		reed;
+	char	*leftover;
+
+	buffer = get_buffer(fd);
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
+		return (NULL);
+	line = ft_strdup(buffer);
+	ft_bzero(buffer, ft_strlen(line));
+	reed = BUFFER_SIZE;
+	while (!ft_strchr(line, d) && reed > 0)
+	{
+		line = ft_realloc(line, ft_strlen(line), BUFFER_SIZE + 1);
+		reed = read(fd, line + ft_strlen(line), BUFFER_SIZE);
+		if (reed <= 0)
+		{
+			if (ft_strlen(line))
+				return (line);
+			return (ft_free(line), NULL);
+		}
+	}
+	leftover = ft_strchr(line, d) + 1;
+	ft_memcpy(buffer, leftover, ft_strlen(leftover));
+	ft_bzero(leftover, ft_strlen(leftover));
+	return (line);
+}

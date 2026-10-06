@@ -1,0 +1,145 @@
+#include "../ft_memory.h"
+
+/**
+ * @brief allocate a new list block for storing orhet allocation pointer
+ * the notmal lstnew out also run ft_malloc leading to a loop in allocation
+ */
+t_list	*ft_memnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
+/**
+ * @brief allocate a memory for a given size while storing the pointer in a list
+ */
+void	*ft_malloc(size_t size)
+{
+	t_list	*mem;
+	t_list	*new;
+	void	*content;
+
+	content = ft_recycalloc(size);
+	if (content)
+		return (content);
+	content = malloc(size);
+	if (!content)
+		allocation_error();
+	ft_bzero(content, size);
+	new = ft_memnew(content);
+	mem = *memory();
+	if (mem != NULL)
+		ft_lstadd_back(&mem, new);
+	else
+		*memory() = new;
+	return (content);
+}
+
+/**
+ * @brief free a block of memory and if it was part of the list, take it out
+ */
+void	ft_free(void *del_block)
+{
+	t_list	**mem_list;
+	t_list	*p_list;
+
+	mem_list = memory();
+	p_list = *memory();
+	if (!del_block)
+		return ;
+	if (p_list && p_list->content && p_list->content == del_block)
+		*mem_list = p_list->next;
+	else
+	{
+		while (p_list)
+		{
+			if (p_list->content && p_list->content == del_block)
+				break ;
+			p_list = (p_list)->next;
+		}
+	}
+	ft_lstdelone(p_list, NULL);
+	if (del_block)
+		free(del_block);
+	del_block = NULL;
+}
+
+/**
+ * @brief free all block of memory still in the list
+ */
+void	ft_clean_allocs(void)
+{
+	t_list	*l;
+	t_list	*t;
+
+	l = *memory();
+	while (l)
+	{
+		t = l->next;
+		if (l->content)
+		{
+			ft_free(l->content);
+		}
+		l = t;
+	}
+	l = *memory();
+	ft_lstclear(&l, free);
+	*memory() = NULL;
+}
+
+// void	print_garb()
+// {
+// 	t_list	**garb;
+// 	t_list	*p_list;
+
+// 	garb = memory();
+// 	p_list = *garb;
+// 	while (p_list)
+// 	{
+// 		if ((p_list)->content)
+// 			printf("list %p\tcontent %p\n", p_list, (p_list)->content);
+// 		p_list = (p_list)->next;
+// 	}
+// 	printf("\n");
+// }
+
+// void	leakCheck(void)
+// {
+// 	system("leaks a.out");
+// }
+
+// int main()
+// {
+// 	atexit(leakCheck);
+// 	void *norman = malloc(13);
+// 	ft_free(norman);
+
+// 	printf("start\n");
+// 	print_garb();
+
+// 	void *lal = ft_malloc(1);
+// 	printf("an elem %p\n", lal);
+// 	print_garb();
+
+// 	void *lel = ft_malloc(1);
+// 	printf("another elem %p\n", lel);
+// 	print_garb();
+
+// 	ft_free(lal);
+// 	printf("freed\n");
+// 	print_garb();
+// 	ft_free(lel);
+// 	printf("freed\n");
+// 	print_garb();
+
+// 	ft_lstclear(memory(), free);
+// 	printf("freed\n");
+// 	print_garb();
+// }

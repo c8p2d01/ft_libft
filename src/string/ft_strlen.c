@@ -35,6 +35,24 @@ size_t	ft_array_size(void **array)
 	return (i);
 }
 
+#ifdef TEST
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	{
+		char	*s = "Hello World!";
+		size_t	mine = ft_strlen(s);
+		int	compare = strlen(s);
+		if (mine == compare)
+			printf("[✓]\ttest: <%s>", s);
+		else
+			printf("[✘]\ttest: <%s>\n\tmine: <%lu>\n\toriginal: <%i>\n", s, mine, compare);
+	}
+}
+
+#endif
+
 // size_t	ft_strlen(const char *str)
 // {
 // 	size_t	i;

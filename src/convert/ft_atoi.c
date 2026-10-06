@@ -36,3 +36,23 @@ int	ft_atoi(const char *nptr)
 	}
 	return (num * sign);
 }
+
+#ifdef TEST
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	printf("i lay at %s\n", argv[0]);
+
+	{
+		char	*s = "42";
+		int		mine = ft_atoi(s);
+		int		compare = atoi(s);
+		if (mine == compare)
+			printf("[✓]\ttest: <%s>", s);
+		else
+			printf("[✘]\ttest: <%s>\n\tmine: <%i>\n\toriginal: <%i>\n", s, mine, compare);
+	}
+}
+
+#endif
