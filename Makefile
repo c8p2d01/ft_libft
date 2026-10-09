@@ -45,6 +45,22 @@ SRCFILES =	\
 			env/setup_env.c \
  \
  \
+			graph/connection/link_graphs.c \
+			graph/connection/unlink_graphs.c \
+ \
+			graph/creation/new_graph.c \
+			graph/creation/new_link.c \
+			graph/creation/new_net.c \
+ \
+			graph/information/are_linked.c \
+			graph/information/linked_to.c \
+			graph/information/node_exist.c \
+ \
+			graph/quad_tree/qt_debug.c \
+			graph/quad_tree/qt_setup.c \
+			graph/quad_tree/quad_tree.c \
+ \
+ \
 			list/changing/ft_lstadd_back.c \
 			list/changing/ft_lstadd_front.c \
 			list/changing/ft_lstclear.c \

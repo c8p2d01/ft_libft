@@ -15,10 +15,12 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <signal.h>
 # include <string.h>
 # include <stdio.h>
 # include <math.h>
 # include <sys/types.h>
+# include <sys/ioctl.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include "../src/memory/ft_memory.h"
@@ -27,6 +29,7 @@
 # include "../src/vector/ft_vector.h"
 # include "../src/print/ft_print.h"
 # include "../src/color/ft_color.h"
+# include "../src/graph/ft_graph.h"
 
 //# define TEST 1
 
