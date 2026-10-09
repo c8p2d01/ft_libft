@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   flag_handling.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 19:13:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/10 03:32:31 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ft_printf.h"
+#include "../ft_print.h"
 
 void	set_pad(unsigned long num)
 {
@@ -79,7 +67,7 @@ void	handle_sign(void)
 	}
 }
 
-void	handle_pointy(void)
+void	handle_pointers(void)
 {
 	t_p_vars	*p_vars;
 

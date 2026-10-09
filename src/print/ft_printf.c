@@ -1,17 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@students.42wolfsburg    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 10:47:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2026/03/30 13:02:07 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "./ft_print.h"
 
-#include "../../inc/libft.h"
-
+/**
+ * @brief execution head for any printf parsing
+ */
 int	sprint(va_list a)
 {
 	t_p_vars	*p_vars;
@@ -40,6 +31,9 @@ int	sprint(va_list a)
 	return (i);
 }
 
+/**
+ * @brief the normal printf to STDOUT
+ */
 int	ft_printf(const char *format, ...)
 {
 	t_p_vars	*p_vars;
@@ -58,6 +52,9 @@ int	ft_printf(const char *format, ...)
 	return (ft_close(written_length));
 }
 
+/**
+ * @brief printf bit args are already a va_list
+ */
 int	ft_vprintf(const char *format, va_list a)
 {
 	t_p_vars	*p_vars;
@@ -74,6 +71,9 @@ int	ft_vprintf(const char *format, va_list a)
 	return (ft_close(written_length));
 }
 
+/**
+ * @brief printf but output to specified fd
+ */
 int	ft_printf_fd(int fd, const char *format, ...)
 {
 	t_p_vars	*p_vars;
@@ -93,6 +93,9 @@ int	ft_printf_fd(int fd, const char *format, ...)
 	return (ft_close(written_length));
 }
 
+/**
+ * @brief printf but output to specified FILE pointer and args are already a va_list
+ */
 int	ft_vfprintf(FILE *f, const char *format, va_list a)
 {
 	t_p_vars	*p_vars;
@@ -111,6 +114,9 @@ int	ft_vfprintf(FILE *f, const char *format, va_list a)
 	return (ft_close(written_length));
 }
 
+/**
+ * @brief printf but output to a char* allocated by this function
+ */
 char *ft_asprintf(const char *format, ...)
 {
 	t_p_vars	*p_vars;
@@ -134,3 +140,26 @@ char *ft_asprintf(const char *format, ...)
 	ft_strlcpy(result, p_vars->as, p_vars->as_written + 1);
 	return (ft_close(written_length), result);
 }
+
+#ifdef TEST
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	printf("testing file %s\n", argv[0]);
+
+	{
+		printf("testing ft_printf\n");
+		{
+			int res;
+			printf("mine\t");
+			res = ft_printf("Hello World");
+			printf("\noutput: %i\n", res);
+			printf("orig\t");
+			res = printf("Hello World");
+			printf("\noutput: %i\n", res);
+		}
+	}
+}
+
+#endif

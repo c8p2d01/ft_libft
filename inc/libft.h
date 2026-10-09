@@ -15,16 +15,20 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 # include <stdio.h>
 # include <math.h>
 # include <sys/types.h>
 # include <stdarg.h>
 # include <stdbool.h>
-# include "../src/list/ft_list.h"
 # include "../src/memory/ft_memory.h"
+# include "../src/list/ft_list.h"
 # include "../src/reading/ft_read.h"
 # include "../src/vector/ft_vector.h"
-# include "../src/print/ft_printf/ft_printf.h"
+# include "../src/print/ft_print.h"
+# include "../src/color/ft_color.h"
+
+//# define TEST 1
 
 /*
 	Checks
@@ -83,37 +87,6 @@ void		ft_formatSpaces(char *s);
 void		str_sed(char **base, char *ind, char *add);
 char		*ft_strmerge(char *s1, char *s2);
 char		*ft_strsmerge(size_t n, ...);
-
-/*
-	Printing
-*/
-
-int			ft_printf(const char *str, ...);
-int			ft_printf_fd(int fd, const char *str, ...);
-void		printfile(int fd);
-void		ft_putchar_fd(char c, int fd);
-void		ft_putstr_fd(char *s, int fd);
-void		ft_putendl_fd(char *s, int fd);
-void		ft_putnbr_fd(int n, int fd);
-int			ft_putnbr_base_fd(unsigned int num, char *base, int fd);
-
-/*
-	Color
-*/
-
-typedef struct s_color
-{
-	u_int8_t	r;
-	u_int8_t	g;
-	u_int8_t	b;
-}	t_color;
-
-t_color		new_color(int r, int g, int b);
-int			create_rgb(int r, int g, int b);
-int			create_gradient_color(float fraction, t_color a, t_color b);
-int			create_multi_gradient(float fraction, int nColor, ...);
-int			terminal_rgb(char r, char b, char g, bool background);
-void		color_range(int num, int low, int high, char c);
 
 /*
 	Environment

@@ -23,3 +23,11 @@ t_list	**opened_files()
 
 	return (&files);
 }
+
+// persisten struct for my printf
+t_p_vars	**query(void)
+{
+	static t_p_vars	*p_vars;
+
+	return (&p_vars);
+}

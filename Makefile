@@ -21,6 +21,14 @@ SRCFILES =	\
 			check/ft_isnumeric.c \
 			check/ft_isprint.c \
  \
+ \
+			color/general/ft_color_gradient.c \
+			color/general/ft_compress_color.c \
+			color/general/ft_new_color.c \
+ \
+			color/terminal/ft_text_color.c \
+ \
+ \
 			convert/ft_atof.c \
 			convert/ft_atoi.c \
 			convert/ft_atoi_base.c \
@@ -31,9 +39,11 @@ SRCFILES =	\
 			convert/ft_tolower.c \
 			convert/ft_toupper.c \
  \
+ \
 			env/debug_env.c \
 			env/env_utils.c \
 			env/setup_env.c \
+ \
  \
 			list/changing/ft_lstadd_back.c \
 			list/changing/ft_lstadd_front.c \
@@ -52,6 +62,7 @@ SRCFILES =	\
 			list/information/ft_lstlast.c \
 			list/information/ft_lstsize.c \
  \
+ \
 			memory/manipulation/ft_bzero.c \
 			memory/manipulation/ft_char_rep.c \
 			memory/manipulation/ft_free_2dstr.c \
@@ -69,28 +80,30 @@ SRCFILES =	\
 			memory/persistent/memory_anchors.c \
 			memory/persistent/memory_cleanup.c \
  \
-			print/ft_printf/debug.c \
-			print/ft_printf/flag_handling.c \
-			print/ft_printf/flag_reading.c \
-			print/ft_printf/handlers_1.c \
-			print/ft_printf/handlers_2.c \
-			print/ft_printf/handlers_3.c \
-			print/ft_printf/padding.c \
-			print/ft_printf/print_utils.c \
-			print/ft_printf/storage.c \
  \
-			print/ft_color.c \
-			print/ft_color_basics.c \
+			print/basics/ft_putchar_fd.c \
+			print/basics/ft_putendl_fd.c \
+			print/basics/ft_putnbr_base_fd.c \
+			print/basics/ft_putnbr_fd.c \
+			print/basics/ft_putstr_fd.c \
+ \
+			print/printf_functionality/debug.c \
+			print/printf_functionality/flag_handling.c \
+			print/printf_functionality/flag_reading.c \
+			print/printf_functionality/handle_hex.c \
+			print/printf_functionality/handle_integer.c \
+			print/printf_functionality/handle_other.c \
+			print/printf_functionality/handle_string.c \
+			print/printf_functionality/padding.c \
+			print/printf_functionality/print_utils.c \
+			print/printf_functionality/storage.c \
+ \
 			print/ft_printf.c \
-			print/ft_printfile.c \
-			print/ft_putchar_fd.c \
-			print/ft_putendl_fd.c \
-			print/ft_putnbr_base.c \
-			print/ft_putnbr_fd.c \
-			print/ft_putstr_fd.c \
+ \
  \
 			reading/get_next_line.c \
 			reading/read_file.c \
+ \
  \
 			string/ft_formatSpaces.c \
 			string/ft_str_not_trim.c \
@@ -109,6 +122,7 @@ SRCFILES =	\
 			string/ft_strrchr.c \
 			string/ft_strtrim.c \
 			string/ft_substr.c \
+ \
  \
 			vector/addition.c \
 			vector/angle.c \
@@ -142,7 +156,7 @@ all:
 $(TEST): $(TESTS)/%.out : $(SOURCE)/%.c
 	@if grep -q "#ifdef TEST" $<; then \
 		mkdir -p $(dir $@); \
-		$(CC) $(NAME) -D TEST=1 $< -o $@; \
+		$(CC) -DTEST=1 $< $(NAME) -o $@; \
 	fi
 
 $(LOGS): $(TESTS)/%.log : $(TESTS)/%.out

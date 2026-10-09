@@ -23,3 +23,28 @@ int	ft_2d_array_size(void **arr)
 	}
 	return (i);
 }
+
+#ifdef TEST
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	printf("testing file %s\n", argv[0]);
+
+	{
+		char	**s = malloc(4 * sizeof(char *));
+		if (!s)
+			exit(1);
+		s[0] = "null";
+		s[1] = "";
+		s[2] = "NULL";
+		s[3] = NULL;
+		if (ft_2d_array_size((void **)s) == 3)
+			printf("[✓]\n");
+		else
+			printf("[✘]\n");
+		free(s);
+	}
+}
+
+#endif

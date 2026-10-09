@@ -71,29 +71,6 @@ void	ft_free(void *del_block)
 	del_block = NULL;
 }
 
-/**
- * @brief free all block of memory still in the list
- */
-void	ft_clean_allocs(void)
-{
-	t_list	*l;
-	t_list	*t;
-
-	l = *memory();
-	while (l)
-	{
-		t = l->next;
-		if (l->content)
-		{
-			ft_free(l->content);
-		}
-		l = t;
-	}
-	l = *memory();
-	ft_lstclear(&l, free);
-	*memory() = NULL;
-}
-
 // void	print_garb()
 // {
 // 	t_list	**garb;

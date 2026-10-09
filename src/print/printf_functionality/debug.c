@@ -1,17 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   debug.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 15:22:47 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/11 04:19:42 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../ft_print.h"
 
-#include "ft_printf.h"
-
+/**
+ * @brief empty the files used for debugging
+ */
 void	reset_files(void)
 {
 	FILE	*file;
@@ -39,6 +30,9 @@ void	reset_files(void)
 	}
 }
 
+/**
+ * @brief execute the original function and our function for comparison
+ */
 void	print_to_file(char *fmt, va_list va, bool original)
 {
 	FILE	*file;
@@ -66,6 +60,11 @@ void	print_to_file(char *fmt, va_list va, bool original)
 	ft_free(string);
 }
 
+/**
+ * @brief debug print behaviour against original
+ * empty call empties output files
+ * other calls append to them
+ */
 void	compare(char *fmt, ...)
 {
 	va_list	va;

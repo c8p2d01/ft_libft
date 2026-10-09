@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 14:23:42 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/09 20:08:36 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "../../inc/libft.h"
+#include "../ft_print.h"
 
 int	ft_putnbr_base_fd(unsigned int num, char *base, int fd)
 {
@@ -47,7 +35,7 @@ int	print_base(char *base, unsigned long nbr)
 }
 
 /**
- * ALERT this function is highly unsstable and relies
+ * ALERT this function is highly unstable and relies
  * on the memory to be allocated and iterates starting in the end
  */
 void	print_base_to_mem(char *dest, char *base, unsigned long nbr)

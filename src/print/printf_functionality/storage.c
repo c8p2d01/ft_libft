@@ -1,23 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   storage.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdahlhof <cdahlhof@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 19:21:03 by cdahlhof          #+#    #+#             */
-/*   Updated: 2025/08/11 04:25:24 by cdahlhof         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ft_printf.h"
-
-t_p_vars	**query(void)
-{
-	static t_p_vars	*p_vars;
-
-	return (&p_vars);
-}
+#include "../ft_print.h"
 
 int	reset_flags_extension(void)
 {
